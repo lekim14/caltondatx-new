@@ -1,0 +1,12 @@
+.gradient{
+    background: #CF1EA3;
+    background: linear-gradient(to left, #CF1EA3 9%, #5852CF 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.trial-bg{
+    background: #3657E6;
+    background: linear-gradient(90deg, rgba(54, 87, 230, 1) 10%, rgba(121, 38, 208, 1) 90%);
+}

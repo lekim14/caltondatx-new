@@ -1,4 +1,166 @@
-<app-navigation-bar>
-<div class="flex justify-between">
-    
+<app-navigation-bar [active]="'home'"/>
+<div class="flex flex-wrap xl:flex-nowrap justify-between gap-10 bg-[#222c58] pr-5 pl-5 xl:pr-10 xl:pl-10 pt-5 xl:pt-14 pb-14">
+    <div vAnimateOnView class="inter xl:w-[50%]">
+        <div class="bg-[#1d3573] rounded-2xl p-2 pr-5 pl-5 w-fit mb-5">
+            <p class="text-xs xl:text-sm text-white">Powered by Advanced AI</p>
+        </div>
+        <div>
+            <p class="text-[#7766f6] text-4xl xl:text-7xl font-bold">Transform Your Business</p>
+            <p class="text-white text-4xl xl:text-7xl font-light">with AI-Driven Insights</p>
+        </div>
+        <p class="text-md xl:text-xl text-white font-light mt-5 mb-5">
+            Harness the power of artificial intelligence to unlock unprecedented audience intelligence. 
+            Our cutting-edge AI platform transforms complex data into actionable strategies that drive measurable business growth. 
+        </p>
+        <div class="flex flex-wrap xl:flex-nowrap gap-4 text-white">
+            <button class="p-3 xl:pr-7 xl:pl-7 text-sm xl:text-lg bg-blue-600 rounded-md shadow-blue-500/30 shadow-lg xl:w-auto w-full">Experience AI Analytics</button>
+            <button class="p-3 xl:pr-7 xl:pl-7 text-sm xl:text-lg border-2 rounded-md hover:border-white hover:bg-white hover:text-black hover:cursor-pointer xl:w-auto w-full">Watch Demo</button>
+        </div>
+    </div>
+
+    <div class="grid justify-items-center inter xl:w-[50%] w-full xl:p-10">
+        <div class="text-center bg-[#443b82] xl:p-10 p-5 w-full rounded-2xl shadow-blue-200/20 shadow-lg">
+            <p class="mb-3 text-[#93c5fd]">AI-POWERED ANALYTICS</p>
+            <p class="text-white mb-6 text-lg font-bold">Real-Time Intelligence Dashboard</p>
+            <!-- Boxes -->
+            <div class="grid grid-cols-2 justify-between gap-7 inter">
+                <div class="pr-5 pl-5 xl:pr-26 xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="99" [duration]="3000"/> </p>
+                    <p class="text-white text-xs">AI Accuracy %</p>
+                </div>
+                <div class="pr-5 pl-5 xl:pr-26 xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="50" [duration]="3000"/></p>
+                    <p class="text-white text-xs">Million+ Data Points</p>
+                </div>
+                <div class="pr-5 pl-5 xl:pr-26 xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="24" [duration]="3000"/></p>
+                    <p class="text-white text-xs">7 Real-time Processing</p>
+                </div>
+                <div class="pr-5 pl-5 xl:pr-26 xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="500" [duration]="3000"/></p>
+                    <p class="text-white text-xs">+ Global CLients</p>
+                </div>
+            </div>
+            <p class="text-green-300 text-xs mt-7">AI Processing Live Data</p>
+        </div>
+    </div>
 </div>
+
+<div class="bg-white pt-20">
+    <div class="text-center">
+        <span class="font-semibold text-2xl xl:text-4xl gradient">Artificial Intelligence</span> 
+        <span class="font-light text-2xl xl:text-4xl"> Meets Audience Measurement</span>
+        <p class="text-lg xl:text-2xl text-gray-600 pr-5 pl-5 xl:pr-20 xl:pl-20 pt-5">
+            Our advanced AI algorithms process millions of data points in real-time, delivering unprecedented accuracy in people and vehicle analytics.
+        </p>
+    </div>
+</div>
+
+<div class="flex xl:flex-nowrap flex-wrap justify-between gap-10 inter p-12">
+    <div vAnimateOnView class="p-6 xl:p-15 shadow-2xl">
+        <p class="font-bold text-xl mb-5">AI Powered People Analytics</p>
+        <p class="text-gray-600 mb-5">
+            Advanced computer vision and machine learning algorithms track pedestrian movement patterns, 
+            demographic insights, and behavioral analytics with 99.9% accuracy.
+        </p>
+        <ul class="list-disc list-inside">
+            <li class="marker:text-[#2563eb] marker:text-2xl">Real-time crowd density analysis</li>
+            <li class="marker:text-[#2563eb] marker:text-2xl">Demographic classification</li>
+            <li class="marker:text-[#2563eb] marker:text-2xl">Dwell time optimization</li>
+        </ul>
+    </div>
+    <div vAnimateOnView class="p-6 xl:p-15 shadow-2xl">
+        <p class="font-bold text-xl mb-5">Smart Vehicle Intelligence</p>
+        <p class="text-gray-600 mb-5">
+            Neural networks analyze vehicle traffic patterns, classification, 
+            and movement behaviors to optimize outdoor advertising placement and measure campaign effectiveness. 
+        </p>
+        <ul class="list-disc list-inside">
+            <li class="marker:text-[#9333ea] marker:text-2xl">Vehicle type classification</li>
+            <li class="marker:text-[#9333ea] marker:text-2xl">Traffic flow analysis</li>
+            <li class="marker:text-[#9333ea] marker:text-2xl">Speed and direction tracking</li>
+        </ul>
+    </div>
+    <div vAnimateOnView class="p-6 xl:p-15 shadow-2xl">
+        <p class="font-bold text-xl mb-5">Predictive AI Insights</p>
+        <p class="text-gray-600 mb-5">
+            Machine learning models predict future audience behaviors, optimal campaign timing, and ROI forecasting based on historical patterns and real-time data. 
+        </p>
+        <ul class="list-disc list-inside">
+            <li class="marker:text-[#16a34a] marker:text-2xl">Audience behavior prediction</li>
+            <li class="marker:text-[#16a34a] marker:text-2xl">Campaign</li>
+            <li class="marker:text-[#16a34a] marker:text-2xl">ROI forecasting</li>
+        </ul>
+    </div>
+</div>
+
+<div class="p-5 xl:p-12 mt-20 inter">
+    <div class="text-center mb-5 animate-slideInUp">
+        <p class="text-3xl xl:text-4xl mb-5">What Our <b>Clients Say</b></p>
+        <p class="text-xl xl:text-2xl">
+            Leading brands trust our AI-powered analytics to drive their success
+        </p>
+    </div>
+
+    <div class="grid xl:grid-cols-3 grid-cols-1 justify-between gap-10 mt-15">
+        @for (item of clients; track $index) {
+            <div vAnimateOnView class="p-10 bg-[#f9fafb]">
+                <div class="flex align-middle gap-5 mb-5 items-center">
+                    <div class="w-14 h-14 rounded-full {{ item.color }} text-white flex items-center justify-center text-xl font-bold">
+                        {{ getEveryInitialLetter(item.name) }}
+                    </div>
+                    <div>
+                        <p class="font-semibold text-lg xl:text-xl">{{ item.name }}</p>
+                        <p class="text-gray-600 text-sm xl:text-md">{{ item.industry }}</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-md xl:text-xl">
+                    "{{ item.description }}" 
+                </p>
+            </div>
+        }
+        
+    </div>
+</div>
+
+<!-- Latest Insights -->
+<div class="p-5 xl:p-12 pt-40">
+     <div class="flex justify-between items-center inter mb-10">
+        <div>
+            <p class="text-3xl xl:text-4xl">Latest <b>Insights</b></p>
+            <p class="text-gray-600 text-md xl:text-xl">Stay ahead with AI-driven industry intelligence</p>
+        </div>
+        <a href="#" class="text-sm xl:text-lg text-blue-600">View All Insights</a>
+    </div>
+
+    <div class="flex flex-wrap justify-evenly">
+        @for (item of insights; track $index) {
+            <div vAnimateOnView class="p-8 flex justify-center items-center">
+                <div class="xl:w-100 h-96 bg-white rounded-lg overflow-hidden shadow-lg flex flex-col">
+                    <!-- Top 40% Gradient -->
+                    <div class="h-[40%] bg-gradient-to-r from-purple-500 to-pink-500">
+                    </div>
+                    <!-- Bottom 60% Content -->
+                    <div class="h-[60%] p-5 flex flex-col">
+                        <p class="text-md {{ item.color }} font-semibold">{{ item.type }}</p>
+                        <h2 class="text-2xl font-semibold mb-2">{{ item.title }}</h2>
+                        <p class="text-gray-600 text-md">{{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        }
+        
+    </div>
+</div>
+
+<div class="trial-bg inter text-center p-10 xl:p-20">
+    <p vAnimateOnView class="text-2xl xl:text-4xl text-white">Ready to harness the power of <b>AI-drive analytics?</b></p>
+    <p vAnimateOnView class="text-md xl:text-xl text-white mt-10">Join leading brands who trust Calton Datx to transform their audience insights with artificial intelligence.</p>
+
+    <div class="flex flex-wrap xl:flex-nowrap justify-center gap-4 text-white mt-7 xl:mt-15">
+        <button class="p-3 pr-7 pl-7 bg-white rounded-md text-[#2f6aec] font-semibold w-full xl:w-auto">Start Free AI Trial</button>
+        <button class="p-3 pr-7 pl-7 border-2 rounded-md hover:bg-white hover:text-[#2f6aec] hover:cursor-pointer font-semibold w-full xl:w-auto">Schedule AI Demo</button>
+    </div>
+</div>
+
+<app-footer/>

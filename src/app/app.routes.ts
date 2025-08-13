@@ -11,4 +11,22 @@ export const routes: Routes = [
             ogUrl: 'your og url'
         }
     },
+    {
+        path: 'solutions',
+        loadComponent: () => import('./views/solutions/solutions.component').then(m => m.SolutionsComponent),
+        data: {
+            title: 'Calton Datx | Solutions',
+            description:'Description Meta Tag Content',
+            ogUrl: 'your og url'
+        }
+    },
+    {
+        path: 'about',
+        loadComponent: () => import('./views/about/about.component').then(m => m.AboutComponent),
+        data: {
+            title: 'Calton Datx | About',
+            description:'Description Meta Tag Content',
+            ogUrl: 'your og url'
+        }
+    },
 ];

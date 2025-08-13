@@ -14,3 +14,20 @@
 .poppins{
     font-family: 'Poppins';
 }
+
+
+/* tailwind.css or global styles */
+@keyframes slideInUp {
+  0% {
+    transform: translateY(5%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 1s ease-out;
+}

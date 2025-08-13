@@ -1,0 +1,349 @@
+<app-navigation-bar [active]="'solutions'"/>
+
+<div class="inter h-screen xl:pr-60 xl:pl-60 trial-bg flex flex-col items-center justify-center">
+    <div class="text-4xl xl:text-7xl font-bold text-white text-center">
+        <p>Complete Digital Signage</p>
+        <p>Analytics Solutions</p>
+    </div>
+    <p class="text-white xl:text-2xl text-md mt-5 text-center mb-10">
+        From people analytics to vehicle tracking, dashboard insights to seamless integration -
+        discover our comprehensive suite of solutions designed to transform your digital signage strategy.
+    </p>
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-10 items-center text-center w-full p-5">
+        <!-- Boxes -->
+        <div vScrollTo="#people-analytics" class="flex flex-col items-center justify-center border-[1px] hover:bg-[#7c79c0] hover:cursor-pointer bg-[#5f59c0] border-white rounded-lg p-5 pl-10 pr-10 flex-1 lg:h-65 2xl:h-55">
+            <p class="text-white text-xl xl:text-2xl font-bold mb-3">People Analytics</p>
+            <p class="text-white text-md xl:text-xl font-light">
+                Understand your audience demographics and engagement patterns
+            </p>
+        </div>
+        <div vScrollTo="#vehicle-analytics" class="flex flex-col items-center justify-center border-[1px] hover:bg-[#7c79c0] hover:cursor-pointer bg-[#5f59c0] border-white rounded-lg p-5 pl-10 pr-10 flex-1 lg:h-65 2xl:h-55">
+            <p class="text-white text-xl xl:text-2xl font-bold mb-3">Vehicle Analytics</p>
+            <p class="text-white text-md xl:text-xl font-light">
+               Track traffic patterns and roadside display effectiveness
+            </p>
+        </div>
+        <div vScrollTo="#dashboard" class="flex flex-col items-center justify-center border-[1px] hover:bg-[#7c79c0] hover:cursor-pointer bg-[#5f59c0] border-white rounded-lg p-5 pl-10 pr-10 flex-1 lg:h-65 2xl:h-55">
+            <p class="text-white text-xl xl:text-2xl font-bold mb-3">Real-time Dashboard</p>
+            <p class="text-white text-md xl:text-xl font-light">
+                Monitor all your analytics in one comprehensive
+            </p>
+        </div>
+    </div>
+</div>
+
+<section class="inter" id="people-analytics">
+    <div class="pt-10 xl:pt-25 pb-20 pl-5 pr-5 xl:pl-20 xl:pr-20 flex flex-wrap xl:flex-nowrap">
+        
+        <div class="xl:w-[50%]">
+            <p class="text-md text-blue-500 font-bold">PEOPLE ANALYTICS</p>
+            <p class="text-xl xl:text-4xl font-bold">Understand Your Audience Like Never Before</p>
+
+            <p class="font-light xl:text-xl mt-7 mb-7">
+                Our advanced people analytics solution uses cutting-edge computer vision and AI to provide deep insights into your audience demographics, 
+                engagement patterns, and behavior around your digital displays. 
+            </p>
+
+            <div class="flex">
+                <div class="leading-7">
+                    <p class="font-bold text-xl">Advanced Demographics Analysis</p>
+                    <p class="font-light text-md">Get comprehensive breakdowns including:</p>
+                    <ul class="font-light text-md list-disc list-inside">
+                        <li>
+                            <b class="font-bold">Gender Distribution: </b> Male, Female, and Non-Binary identification
+                        </li>
+                        <li>
+                            <b class="font-bold">Age Groups: </b> 13-17, 18-24, 25-34, 35-44, 45-54, 55-64, 65+ years
+                        </li>
+                        <li>
+                            <b class="font-bold">Audience Composition: </b> Peak demographics and behavioral patterns
+                        </li>
+                        <li>
+                            <b class="font-bold">Time-based Analysis: </b> Demographics by hour, day, and season
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex mt-5">
+                <div class="leading-7">
+                    <p class="font-bold text-xl">Attention Measurement</p>
+                    <p class="font-light text-md">Track how long peaople look at your displays, which content captures attention, and optimal viewing patterns.</p>
+                </div>
+            </div>
+
+            <div class="flex mt-5">
+                <div class="leading-7">
+                    <p class="font-bold text-xl">Engagement Tracking</p>
+                    <p class="font-light text-md">Monitor interaction rates, dwell times, and conversion metrics to measure campaign effectiveness.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="xl:w-[50%] w-full xl:p-10 pt-5">
+            <div class="bg-gray-100 p-5 rounded-lg w-full">
+                <p class="text-xl xl:text-2xl font-bold text-center mb-5">Live Analytics Preview</p>
+                <div class="grid grid-cols-2 gap-5">
+                    @for (item of analyticsData; track $index) {
+                        <div class="bg-white p-5 rounded-lg">
+                            <p class="text-xl xl:text-2xl font-bold {{ item.color }}">{{ formatNumber(item.value) }}{{ item.extension }}</p>
+                            <p class="font-light text-sm xl:text-md">{{ item.label }}</p>
+                        </div>
+                    }
+                    <div class="bg-white p-5 rounded-lg col-span-2">
+                        <p class="text-lg xl:text-xl font-bold mb-2">Demographics Breakdown</p>
+                        @for (item of breakDownData; track $index) {
+                            <div class="flex justify-between">
+                                <p>{{ item.label }}</p>
+                                <div class="flex items-center justify-between w-[175px]">
+                                    <div class="w-[120px] shrink-0 bg-gray-200 rounded-full h-2">
+                                        <div class="{{ getColorByPercentage(item.bar) }} h-2 rounded-full {{ item.width }}"></div>
+                                    </div>
+                                    <p class="ml-2 whitespace-nowrap">{{ item.bar }}%</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="inter trial-bg-reverse" id="vehicle-analytics">
+    <div class="pt-15 xl:pt-25 pb-20 xl:pl-20 xl:pr-20 flex flex-wrap xl:flex-nowrap items-center justify-center">
+        
+        <div class="xl:w-[50%] w-full p-5 xl:p-10">
+            <div class="bg-[rgba(151,151,151,0.26)] border-[1px] border-[rgba(151,151,151,0.32)] p-5 rounded-lg">
+                <p class="text-xl xl:text-2xl text-white font-bold text-center mb-5">Traffic Analytics Dashboard</p>
+                <div class="grid grid-cols-2 gap-5">
+                    @for (item of vehicleAnalyticsData; track $index) {
+                        <div class="p-5 rounded-lg bg-[rgba(151,151,151,0.32)] border-[1px] border-[rgba(151,151,151,0.32)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:bg-[#7c79c0]">
+                            <p class="text-xl xl:text-2xl font-bold {{ item.color }}">{{ formatNumber(item.value) }}{{ item.extension }}</p>
+                            <p class="font-light text-white text-sm xl:text-md">{{ item.label }}</p>
+                        </div>
+                    }
+                    <div class="bg-[rgba(151,151,151,0.32)] border-[1px] border-[rgba(151,151,151,0.32)] text-white  p-5 rounded-lg col-span-2 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:bg-[#7c79c0]">
+                        <p class="text-lg xl:text-xl font-bold mb-2">Vehicle Classification</p>
+                        @for (item of vehicleClassification; track $index) {
+                            <div class="flex justify-between">
+                                <p>{{ item.label }}</p>
+                                <div class="flex items-center justify-between w-[175px]">
+                                    <div class="w-[120px] shrink-0 bg-gray-200 rounded-full h-2">
+                                        <div class="{{ getColorByPercentage(item.bar) }} h-2 rounded-full {{ item.width }}"></div>
+                                    </div>
+                                    <p class="ml-2 whitespace-nowrap">{{ item.bar }}%</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="xl:w-[50%] p-5 text-white">
+            <p class="font-bold text-lg xl:text-xl mb-3">VEHICLE ANALYTICS</p>
+            <p class="font-bold text-3xl xl:text-5xl mb-8">Optimize Roadside Display Performance</p>
+            <p class="font-light text-lg xl:text-xl">
+                Transform your roadside digital signage with intelligent vehicle analytics. Track traffic patterns, measure display effectiveness, and optimize content based on real-time vehicle data and behavior patterns. 
+            </p>
+            @for (item of displayPerformance; track $index) {
+                <div class="flex w-full mt-5">
+                    <div>
+                        <p class="font-bold text-2xl mb-2">{{ item.title }}</p>
+                        <p class="font-light text-lg">{{ item.description }}</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section id="dashboard">
+    <div class="grid items-center justify-items-center inter pt-20 pb-20 pl-5 pr-5 xl:pl-30 xl:pr-30">
+        <p class="font-bold text-lg xl:text-xl text-[#2563eb] mb-2">CALTON DATX DASHBOARD</p>
+        <p class="font-bold text-3xl xl:text-4xl mb-5">All Your Analytics in One Place</p>
+        <div class="xl:pr-100 xl:pl-100 mb-10">
+            <p class="font-light text-xl text-center">
+                Experience the power of unified analytics with our comprehensive dashboard. Monitor all your digital signage performance metrics, 
+                from people analytics to vehicle tracking, in one intuitive interface. 
+            </p>
+        </div>
+
+        <div class="w-full bg-[#273346] p-5 rounded-xl">
+            <div class="flex justify-between">
+                <p class="font-bold text-xl xl:text-2xl text-white">Calton Datx Dashboard</p>
+            </div>
+            <div class="grid xl:grid-cols-4 gap-5 mt-5">
+                @for (item of [1,2,3,4]; track $index) {
+                    <div class="p-5 rounded-lg bg-[rgba(151,151,151,0.32)] border-[1px] border-[rgba(151,151,151,0.32)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:bg-[rgba(245,242,242,0.32)]">
+                        <p class="text-xl xl:text-2xl font-bold text-white {{ item }}">18,247</p>
+                        <p class="font-light text-white text-md">Total Impression</p>
+                        <p class="text-xs text-red-300 mt-1">+12.5%</p>
+                    </div>
+                }
+                <div class="xl:col-span-2 p-5 rounded-lg bg-[rgba(151,151,151,0.32)] border-[1px] border-[rgba(151,151,151,0.32)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:bg-[rgba(245,242,242,0.32)]">
+                    <p class="font-bold text-lg xl:text-xl text-white mb-3">Real-time Activity</p>
+                    <ul class="list-disc list-inside">
+                        @for (item of [1,2,3]; track $index) {
+                            <div class="flex justify-between items-center justify-items-center mb-1">
+                                <li class="marker:text-[#4ade80] marker:text-2xl text-white">Display #1 - Mall Entrance</li>
+                                <p class="text-[#4ade80]">Active</p>
+                            </div>
+                        }
+                    </ul>
+                </div>
+
+                <div class="xl:col-span-2 p-5 rounded-lg bg-[rgba(151,151,151,0.32)] border-[1px] border-[rgba(151,151,151,0.32)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:bg-[rgba(245,242,242,0.32)]">
+                    <p class="font-bold text-lg xl:text-xl text-white mb-3">Top Performing Content</p>
+                    @for (item of [1,2,3]; track $index) {
+                        <div class="flex justify-between items-center justify-items-center mb-1">
+                            <p class="text-white mb-3">Summer Sale Campaign</p>
+                            <p class="text-[#4ade80]">89% CTR</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap xl:flex-nowrap justify-between gap-10 mt-15">
+            <div class="bg-[#f1eefe] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p class="font-bold text-xl xl:text-2xl mb-3">Real-time Monitoring</p>
+                <p class="font-light text-md xl:text-lg mb-5">Monitor all your displays and campaigns in real-time with instant alerts and notifications.</p>
+            </div>
+            <div class="bg-[#e5f0fe] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p class="font-bold text-xl xl:text-2xl mb-3">Advanced Reports</p>
+                <p class="font-light text-md xl:text-lg mb-5">Generate comprehensive reports with actionable insights and export capabilities.</p>
+            </div>
+            <div class="bg-[#e5fced] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p class="font-bold text-xl xl:text-2xl mb-3">Custom Alerts</p>
+                <p class="font-light text-md xl:text-lg mb-5">Set up custom alerts for performance thresholds, system issues, and campaign milestones.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="inter text-white trial-bg">
+    <div class="pt-25 pb-20 xl:pl-40 xl:pr-40 text-center">
+        <div class="pl-5 pr-5 xl:pl-110 xl:pr-110">
+            <p class="text-md xl:text-lg font-bold text-[#7ea7ed] mb-5">HARDWARE & PLATFORM INTEGRATION</p>
+            <p class="font-bold text-3xl xl:text-5xl mb-5">Complete Hardware & Platform Compability</p>
+            <p class="text-md xl:text-lg">
+                Experience seamless connectivity with comprehensive hardware compatibility and 
+                multi-platform accessibility for your complete digital signage ecosystem.
+            </p>
+        </div>
+
+        <p class="text-2xl xl:text-3xl font-bold mt-15">Hardware Compability</p>
+        <div class="grid xl:grid-cols-3 gap-7 p-5 mt-2">
+            @for (item of hardwareCompability; track $index) {
+                <div class="rounded-lg p-5 text-white bg-[rgba(151,151,151,0.23)] border-[1px] border-[rgba(151,151,151,0.32)]">
+                    <p class="text-xl xl:text-2xl font-bold mb-4">{{ item.title }}</p>
+                    <p class="text-md">{{ item.description }}</p>
+                </div>
+            }
+        </div>
+
+        <p class="text-2xl xl:text-3xl font-bold mt-15">Platform Accessibility</p>
+        <div class="grid xl:grid-cols-3 gap-7 p-5 mt-2">
+            @for (item of platformAccessibility; track $index) {
+                <div class="rounded-lg p-5 text-white bg-[rgba(151,151,151,0.23)] border-[1px] border-[rgba(151,151,151,0.32)]">
+                    <p class="text-xl xl:text-2xl font-bold mb-4">{{ item.title }}</p>
+                    <p class="text-md">{{ item.description }}</p>
+                </div>
+            }
+        </div>
+
+        <p class="text-2xl xl:text-3xl font-bold mt-15">Calton Datx Installation</p>
+        <div class="grid xl:grid-cols-4 gap-7 p-5 mt-2">
+            @for (item of caltonInstallation; track $index) {
+                <div class="rounded-lg p-5 text-white bg-[rgba(151,151,151,0.23)] border-[1px] border-[rgba(151,151,151,0.32)]">
+                    <p class="text-xl xl:text-2xl font-bold mb-4">{{ item.title }}</p>
+                    <p class="text-md">{{ item.description }}</p>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>
+
+<section class="inter">
+    <div class="pt-5 pb-20 pl-5 pr-5 xl:pl-40 xl:pr-40">
+        <div class="pt-10 xl:pt-25 pb-20 xl:pl-40 xl:pr-40">
+            <div class="pl-5 pr-5 xl:pl-80 xl:pr-80 text-center">
+                <p class="text-md xl:text-lg font-bold text-[#3657E6] mb-5">ENTERPRISE SECURITY & API INTEGRATION</p>
+                <p class="font-bold text-3xl xl:text-5xl mb-5">Enterprise-Grade Security & Seamless Integrations</p>
+                <p class="text-md xl:text-lg">
+                    Protect your data with enterprise-grade security and connect with your existing systems through powerful API integrations. 
+                </p>
+            </div>
+        </div>
+
+        <div class="text-center font-bold text-2xl xl:text-3xl">Enterprise-Grade Security</div>
+        <div class="flex flex-wrap xl:flex-nowrap xl:justify-evenly mt-5 bg-[#f2f7fe] pl-5 pr-5">
+            <div class="p-5 xl:p-10">
+                <p class="font-bold text-xl xl:text-2xl mb-2">Security Features</p>
+                <ul class="leading-10 text-sm xl:text-md">
+                    <li>256-bit SSL/TLS Encryption</li>
+                    <li>Multi-Factor Authentication (MFA)</li>
+                    <li>Role-Based Access Control (RBAC)</li>
+                    <li>Data Encryption at Rest</li>
+                </ul>
+            </div>
+
+            <div class="p-5 xl:p-10">
+                <p class="font-bold text-xl xl:text-2xl mb-2">Compliance & Standards</p>
+                <ul class="leading-10 text-sm xl:text-md">
+                    <li>GDPR Compliant</li>
+                    <li>SOC 2 Type II Certified</li>
+                    <li>ISO 27001 Standards</li>
+                    <li>Regular Security Audits</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center font-bold text-2xl xl:text-3xl mt-20 mb-5">API Integration & Connectivity</div>
+        <div class="grid xl:grid-cols-4 gap-10 p-5 mt-2">
+            @for (item of [1,2,3,4]; track $index) {
+                <div class="text-center p-5">
+                    <p class="font-bold text-xl xl:text-2xl">REST API</p>
+                    <p class="text-sm xl:text-md">Full REST API access for custom integrations and data synchronization.</p>
+                </div>
+            }
+        </div>
+
+        <div class="p-10 mt-10 bg-[#faf7fe]">
+            <p class="font-bold text-2xl xl:text-3xl">Popular Integrations</p>
+            <div class="flex flex-wrap xl:flex-nowrap gap-10">
+                <div class="grid grid-cols-2 gap-5 xl:gap-10 mt-5 w-full xl:w-[50%]">
+                    @for (item of [1,2,3,4]; track $index) {
+                        <div class="text-center p-5 bg-white w-full">
+                            <p class="text-md xl:text-lg font-semibold">BrightSign</p>
+                            <p class="text-xs xl:text-sm font-light">Media Players</p>
+                        </div>
+                    }
+                </div>
+                <div class="">
+                    <p class="text-2xl xl:text-3xl font-bold mb-5">Integration Benefits</p>
+                    <ul class="leading-10 font-light text-md xl:text-lg list-disc list-inside">
+                        <li>Unified data across all platforms</li>
+                        <li>Automated reporting and alerts</li>
+                        <li>Streamlined workflow management</li>
+                        <li>Enhanced ROI measurement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="trial-bg inter text-center p-10 xl:p-20">
+        <p class="font-bold text-2xl xl:text-4xl text-white">Ready to Transform Your Digital Signage?</p>
+        <p class="text-md xl:text-xl text-white mt-10">Join thousands of businesses already using Calton Datx to optimize their digital signage performance and maximize ROI.</p>
+
+        <div class="flex flex-wrap xl:flex-nowrap justify-center gap-4 text-white mt-7 xl:mt-15 text-md xl:text-lg">
+            <button class="p-3 xl:p-6 pr-10 pl-10 bg-[#2f6aec] rounded-md text-white font-semibold w-full xl:w-auto shadow-lg">Request Demo</button>
+            <button class="p-3 xl:p-6 pr-10 pl-10 border-2 rounded-md hover:bg-white hover:text-[#2f6aec] hover:cursor-pointer font-semibold w-full xl:w-auto">Start Free Trial</button>
+        </div>
+    </div>
+</section>
+<app-footer/>
