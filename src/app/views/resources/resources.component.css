@@ -1,0 +1,9 @@
+.resources-bg{
+    background: #3657E6;
+    background: linear-gradient(90deg, rgb(73, 123, 246) 50%, rgba(121, 38, 208, 1) 100%);
+}
+
+.resource-bg-gradient{
+    background: #3657E6;
+    background: linear-gradient(90deg, rgba(54, 87, 230, 1) 5%, rgba(121, 38, 208, 1) 100%);
+}

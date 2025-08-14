@@ -29,4 +29,22 @@ export const routes: Routes = [
             ogUrl: 'your og url'
         }
     },
+    {
+        path: 'industries',
+        loadComponent: () => import('./views/industries/industries.component').then(m => m.IndustriesComponent),
+        data: {
+            title: 'Calton Datx | Industries',
+            description:'Description Meta Tag Content',
+            ogUrl: 'your og url'
+        }
+    },
+    {
+        path: 'resources',
+        loadComponent: () => import('./views/resources/resources.component').then(m => m.ResourcesComponent),
+        data: {
+            title: 'Calton Datx | Resources',
+            description:'Description Meta Tag Content',
+            ogUrl: 'your og url'
+        }
+    },
 ];

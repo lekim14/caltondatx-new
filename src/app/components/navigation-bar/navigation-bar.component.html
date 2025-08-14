@@ -7,8 +7,8 @@
     <!-- Links -->
     <div class="xl:flex hidden justify-around t items-center gap-6 cursor-pointer">
         <a [routerLink]="['/solutions']" routerLinkActive="solutions" class="font-medium {{ isActive('solutions') }} cursor-pointer">Solutions</a>
-        <span class="font-medium text-gray-600">Industries</span>
-        <span class="font-medium text-gray-600">Insights</span>
+        <a [routerLink]="['/industries']" routerLinkActive="industries" class="font-medium {{ isActive('industries') }} cursor-pointer">Industries</a>
+        <a [routerLink]="['/resources']" routerLinkActive="resources" class="font-medium {{ isActive('resources') }} cursor-pointer">Resources</a>
         <a [routerLink]="['/about']" routerLinkActive="about" class="font-medium {{ isActive('about') }} cursor-pointer">About</a>
         <button class="p-2 pl-4 pr-4 text-white bg-blue-600 rounded-md" type="button">Get Started</button>
     </div>
