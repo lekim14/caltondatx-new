@@ -28,10 +28,10 @@
 <div id="overlay" class="fixed inset-0 z-40 bg-gray-500 xl:opacity-0 opacity-80 hidden"></div>
 <!-- Mobile Menu (hidden by default) -->
 <div id="mobileMenu" class="xl:hidden hidden px-5 pb-4 gap-4 fixed bg-white w-full">
-    <span class="font-medium text-gray-600 hover:text-gray-800 cursor-pointer">Solutions</span>
-    <span class="font-medium text-gray-600 hover:text-gray-800 cursor-pointer">Industries</span>
-    <span class="font-medium text-gray-600 hover:text-gray-800 cursor-pointer">Insights</span>
-    <span class="font-medium text-gray-600 hover:text-gray-800 cursor-pointer">About</span>
+    <a [routerLink]="['/solutions']" routerLinkActive="solutions" class="font-medium {{ isActive('solutions') }} cursor-pointer">Solutions</a>
+    <a [routerLink]="['/industries']" routerLinkActive="industries" class="font-medium {{ isActive('industries') }} cursor-pointer">Industries</a>
+    <a [routerLink]="['/resources']" routerLinkActive="resources" class="font-medium {{ isActive('resources') }} cursor-pointer">Resources</a>
+    <a [routerLink]="['/about']" routerLinkActive="about" class="font-medium {{ isActive('about') }} cursor-pointer">About</a>
     <button class="w-fit px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-md transition" type="button">
         Get Started
     </button>
