@@ -15,43 +15,43 @@ export class IndustriesComponent {
       title: 'Retail & Consumer Goods',
       description: 'Consumer behavior analytics, market share measurement, and retail performance optimization.',
       data: [ 'Shopper journey analysis', 'Brand performance tracking', 'Market basket analysis' ],
-      icon: '',
-      color: ''
+      icon: '/assets/icons/bag.webp',
+      color: '#447aef'
     },
     {
       title: 'Media & Entertainment',
       description: 'Audience measurement, content performance analytics, and advertising effectiveness.',
       data: [ 'Viewership analytics', 'Content optimization', 'Ad campaign measurement' ],
-      icon: '',
-      color: ''
+      icon: '/assets/icons/camera-recorder.webp',
+      color: '#a24fed'
     },
     {
       title: 'Financial Services',
       description: 'Risk analytics, customer segmentation, and regulatory compliance solutions. ',
       data: [ 'Credit risk modeling', 'Fraud detection', 'Portfolio optimization' ],
-      icon: '',
-      color: ''
+      icon: '/assets/icons/dollar.webp',
+      color: '#16a34a'
     },
     {
       title: 'Healthcare & Pharma',
       description: 'Patient outcomes analysis, clinical trial optimization, and market access insights. ',
       data: [ 'Clinical data analysis', 'Drug efficacy studies', 'Patient journey mapping' ],
-      icon: '',
-      color: ''
+      icon: '/assets/icons/heart.webp',
+      color: '#e34e4e'
     },
     {
       title: 'Technology & Telecom',
       description: 'User behavior analytics, network optimization, and digital transformation insights. ',
       data: [ 'Network performance', 'User experience metrics', 'Digital Adoption tracking' ],
-      icon: '',
-      color: ''
+      icon: '/assets/icons/monitor.webp',
+      color: '#655ee9'
     },
     {
       title: 'Automotive & Transport',
       description: 'Mobility analytics, supply chain optimization, and consumer preference insights. ',
       data: [ 'Fleet optimization', 'Route efficiency', 'Market demand forecasting' ],
-      icon: '',
-      color: ''
+      icon: '/assets/icons/transfer.webp',
+      color: '#ca8a04'
     },
   ]
 

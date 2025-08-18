@@ -17,7 +17,7 @@
             Explore our comprehensive collection of AI-driven research, case studies, whitepapers, and industry insights to stay ahead in audience analytics.  
         </p>
         <div class="w-full max-w-2xl">
-            <input type="text" placeholder="Search resources, topics, or keywords..." 
+            <input [formControl]="query" type="text" placeholder="Search resources, topics, or keywords..." 
             class="p-2 xl:p-4 text-sm bg-[rgba(151,151,151,0.3)] border-[1px] border-[rgba(151,151,151,0.32)] focus:border-[#7766f6] focus:outline-none w-[100%] text-white rounded-lg">
         </div>
     </div>
@@ -31,37 +31,36 @@
     }
 </div>
 
-<div class="grid gap-5 p-10 xl:pl-60 xl:pr-60 mt-5 inter">
+<div class="grid gap-5 p-10 2xl:pl-60 2xl:pr-60 mt-5 inter">
     <span class="font-bold text-2xl xl:text-4xl text-center">Featured <span class="font-light">Resources</span></span> 
     <p class="text-md xl:text-lg text-gray-600 text-center">Our most popular and impactful content for AI-driven audience analytics</p>
 
     <div class="flex flex-wrap xl:flex-nowrap justify-evenly gap-10">
-        @for (item of [1,2]; track $index) {
-            <div class="p-5 rounded-lg bg-[#f4f6ff]">
+        @for (item of featuredResources; track $index) {
+            <div class="grid p-5 rounded-lg bg-[#f4f6ff]">
                 <div class="flex align-middle gap-5 mb-5 items-center">
                     <div class="w-14 h-14 rounded-full flex items-center justify-center text-lg xl:text-xl font-bold">
-                        ICON
+                        <img [src]="item.icon" class="w-[60px] h-[60px]" alt="">
                     </div>
                     <div>
-                        <p class="font-semibold text-blue-600 text-sm xl:text-lg">FEATURED WHITEPAPER</p>
-                        <p class="text-gray-600 text-xs xl:text-md">Published December 2024</p>
+                        <p [style.color]="item.color" class="font-semibold text-sm xl:text-lg">{{ item.name }}</p>
+                        <p class="text-gray-600 text-xs xl:text-md">{{ item.subName }}</p>
                     </div>
                 </div>
                 <p class="font-semibold text-xl xl:text-2xl">
-                    The Future of AI in Audience Measurement: 2025 Predictions
+                    {{ item.title }}
                 </p>
                 <p class="text-sm xl:text-md text-gray-600 mt-5">
-                    Comprehensive analysis of emerging AI technologies and their impact on audience analytics. Includes machine learning trends, 
-                    computer vision advances, and predictive modeling innovations. 
+                    {{ item.description }}
                 </p>
 
                 <div class="flex flex-wrap justify-evenly items-center mt-5 xl:gap-0 gap-5">
-                    <p class="text-sm text-gray-500">32 pages</p>
+                    <p class="text-sm text-gray-500">{{ item.subInfo }}</p>
                     <div class="w-[5px] h-[5px] rounded-full bg-gray-600 shrink-0"></div>
-                    <p class="text-sm text-gray-500">15 min read</p>
+                    <p class="text-sm text-gray-500">{{ item.subInfo2 }}</p>
                     <div class="w-[5px] h-[5px] rounded-full bg-gray-600 shrink-0"></div>
-                    <p class="text-sm text-gray-600">2,847 downloads</p>
-                    <button class="text-white bg-[#2563eb] rounded-xl p-2 xl:pl-6 xl:pr-6">Download PDF</button>
+                    <p class="text-sm text-gray-600">{{ item.subInfo3 }}</p>
+                    <button [style.backgroundColor]="item.color" class="text-white rounded-xl p-2 xl:pl-6 xl:pr-6 cursor-pointer">{{ item.button }}</button>
                 </div>
             </div>
         }
@@ -71,10 +70,10 @@
 <div class="p-10 xl:pl-40 xl:pr-40 pb-20 mt-10 bg-[#f9fafb] inter">
     <div class="grid xl:grid-cols-3 gap-10">
         @for (item of resourcesData; track $index) {
-            <div class="p-5 rounded-lg bg-white shadow-2xl">
+            <div class="grid p-5 rounded-lg bg-white shadow-2xl">
                 <div class="flex align-middle gap-5 mb-5 items-center">
                     <div class="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold">
-                        ICON
+                        <img [src]="item.icon" class="w-[50px] h-[50px]" alt="">
                     </div>
                     <div>
                         <p class="font-semibold text-[{{ item.color }}] text-sm xl:text-md">{{ item.name }}</p>
@@ -92,7 +91,7 @@
                     <p class="text-xs text-gray-500">{{ item.subInfo }}</p>
                     <p class="text-xs text-gray-500">{{ item.subInfo2 }}</p>
                 </div>
-                <button class="text-white bg-[{{ item.color }}] text-sm rounded-lg p-2 pl-6 pr-6 w-full">{{ item.button }}</button>
+                <button [style.backgroundColor]="item.color" class="text-white text-sm rounded-lg p-2 pl-6 pr-6 w-full cursor-pointer">{{ item.button }}</button>
             </div>
         }
     </div>

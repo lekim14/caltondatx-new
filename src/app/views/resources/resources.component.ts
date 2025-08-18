@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationBarComponent } from '../../components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { VAnimateOnViewDirective } from '../../directives/v-animate-on-view.directive';
+import { debounceTime } from 'rxjs';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonFeatureModule } from '../../modules/common/common.module';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-resources',
-  imports: [NavigationBarComponent, FooterComponent, VAnimateOnViewDirective],
+  imports: [NavigationBarComponent, FooterComponent, VAnimateOnViewDirective, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './resources.component.html',
-  styleUrl: './resources.component.css'
+  styleUrl: './resources.component.css',
 })
-export class ResourcesComponent {
+export class ResourcesComponent implements OnInit{
   selectedResource: string = 'All Resources';
+  query = new FormControl('');
   resources = [
     { id: 1, name: 'All Resources' },
     { id: 2, name: 'White Papers' },
@@ -20,8 +25,8 @@ export class ResourcesComponent {
     { id: 6, name: 'Webinars' },
     { id: 7, name: 'Tools & Calculators' },
   ];
-
-  resourcesData = [
+  resourcesData: any[];
+  initResourcesData = [
     {
       name: 'WHITEPAPER',
       subName: 'Nov 2024',
@@ -30,8 +35,9 @@ export class ResourcesComponent {
       subInfo: '24 pages',
       subInfo2: '847 downloads',
       button: 'Download PDF',
-      icons: '',
-      color: '#9333ea'
+      icon: '/assets/icons/file.webp',
+      color: '#9333ea',
+      type: 'White Papers'
     },
     {
       name: 'CASE STUDY',
@@ -41,8 +47,9 @@ export class ResourcesComponent {
       subInfo: '16 pages',
       subInfo2: '1,234 downloads',
       button: 'Read Case Study',
-      icons: '',
-      color: '#16a34a'
+      icon: '/assets/icons/signal-green.webp',
+      color: '#16a34a',
+      type: 'Case Studies'
     },
     {
       name: 'INDUSTRY REPORT',
@@ -52,8 +59,9 @@ export class ResourcesComponent {
       subInfo: '45 pages',
       subInfo2: '2,156 downloads',
       button: 'Download Report',
-      icons: '',
-      color: '#2563eb'
+      icon: '/assets/icons/chart.webp',
+      color: '#2563eb',
+      type: 'Industry Reports'
     },
     {
       name: 'GUIDE',
@@ -63,8 +71,9 @@ export class ResourcesComponent {
       subInfo: '12 pages',
       subInfo2: '3,421 downloads',
       button: 'Read Guide',
-      icons: '',
-      color: '#ea580c'
+      icon: '/assets/icons/guide.webp',
+      color: '#ea580c',
+      type: 'Guides & Tutorials'
     },
     {
       name: 'WEBINAR',
@@ -74,8 +83,9 @@ export class ResourcesComponent {
       subInfo: '60 minutes',
       subInfo2: '1,876 registrations',
       button: 'Register Now',
-      icons: '',
-      color: '#dc2626'
+      icon: '/assets/icons/camera-recorder-red.webp',
+      color: '#dc2626',
+      type: 'Webinars'
     },
     {
       name: 'CALCULATOR',
@@ -85,11 +95,65 @@ export class ResourcesComponent {
       subInfo: 'Interactive',
       subInfo2: '5,432 uses',
       button: 'Use Calculator',
-      icons: '',
-      color: '#4f46e5'
+      icon: '/assets/icons/calculator.webp',
+      color: '#4f46e5',
+      type: 'Tools & Calculators'
     },
-  ]
+  ];
+
+  featuredResources = [
+    {
+      name: 'FEATURED WHITEPAPER',
+      subName: 'Published December 2024',
+      title: 'The Future of AI in Audience Measurement: 2025 Predictions',
+      description: 'Comprehensive analysis of emerging AI technologies and their impact on audience analytics. Includes machine learning trends, computer vision advances, and predictive modeling innovations.',
+      subInfo: '32 pages',
+      subInfo2: '15 min read',
+      subInfo3: '2,847 downloads',
+      button: 'Download PDF',
+      icon: '/assets/icons/file-blue.webp',
+      color: '#2563eb'
+    },
+    {
+      name: 'FEATURED CASE STUDY',
+      subName: 'New Balance Campaign',
+      title: 'How AI Analytics Increased Billboard ROI by 340%',
+      description: 'Detailed case study showing how New Balance leveraged our AI-powered people and vehicle analytics to optimize their outdoor advertising campaigns across 15 major cities.',
+      subInfo: '18 pages',
+      subInfo2: '12 min read',
+      subInfo3: '1,923 downloads',
+      button: 'Read Case Study',
+      icon: '/assets/icons/signal-green-bg.webp',
+      color: '#16a34a'
+    },
+  ];
+
+  constructor(){
+    this.resourcesData = [...this.initResourcesData];
+  }
+
+  ngOnInit() {
+    this.query.valueChanges
+      .pipe(debounceTime(200)) // waits 200ms after typing stops
+      .subscribe(value => {
+        this.handleSearchResource(value);
+      });
+  }
   handleResource(source: string){
     this.selectedResource = source;
+    if(source === 'All Resources'){
+      this.resourcesData = this.initResourcesData;
+    }else{
+      this.resourcesData = this.initResourcesData.filter(res => res.type === source);
+    }
+  }
+
+  handleSearchResource(value: any){
+    const query = value.toLowerCase();
+    this.resourcesData = this.initResourcesData.filter(item =>
+      Object.values(item).some(value =>
+        typeof value === 'string' && value.toLowerCase().includes(query)
+      )
+    )
   }
 }

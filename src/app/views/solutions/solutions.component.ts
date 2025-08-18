@@ -112,17 +112,17 @@ export class SolutionsComponent implements AfterViewInit {
     {
       title: 'Traffic Flow Analysis',
       description: 'Monitor vehicle volume, peak hours, and traffic patterns to optimize your display scheduling and content timing.',
-      icon: '',
+      icon: '/assets/icons/arrow-up.webp',
     },
     {
       title: 'Vehicle Classification',
       description: 'Automatically identify and categorize different vehicle types to tailor your advertising content for specific audiences.',
-      icon: '',
+      icon: '/assets/icons/truck.webp',
     },
     {
       title: 'Speed & Dwell Metrics',
       description: 'Measure vehicle speeds and dwell times to understand optimal content duration and display visibility windows.',
-      icon: '',
+      icon: '/assets/icons/clock.webp',
     },
   ];
 
@@ -130,17 +130,17 @@ export class SolutionsComponent implements AfterViewInit {
     {
       title: 'Camera Recorders',
       description: 'Full compatibility with IP cameras, CCTV systems, and smart recording devices',
-      icon: ''
+      icon: '/assets/icons/camera-recorder-gray.webp'
     },
     {
       title: 'VCast Players',
       description: 'Seamless integration with VCast media players and streaming devices',
-      icon: ''
+      icon: '/assets/icons/monitor-gray.webp'
     },
     {
       title: 'Display Flexibility',
       description: 'Support for all display types and configurations with adaptive scaling',
-      icon: ''
+      icon: '/assets/icons/monitor-gray.webp'
     }
   ];
 
@@ -148,17 +148,17 @@ export class SolutionsComponent implements AfterViewInit {
     {
       title: 'Mobile Access',
       description: 'Full-featured mobile apps for IOS and Android with real-time monitoring and alerts',
-      icon: ''
+      icon: '/assets/icons/mobile-gray.webp'
     },
     {
       title: 'Desktop Interface',
       description: 'Comprehensive desktop application with advanced analytics and management tools',
-      icon: ''
+      icon: '/assets/icons/monitor-gray.webp'
     },
     {
       title: 'Admin PC Access',
       description: 'Dedicated admin interface with enterprise controls, user management, and system configuration',
-      icon: ''
+      icon: '/assets/icons/settings-gray.webp'
     },
   ];
 
@@ -166,22 +166,64 @@ export class SolutionsComponent implements AfterViewInit {
     {
       title: 'Web-Based Platform',
       description: 'Access from any browser, no installation required',
-      icon: ''
+      icon: '/assets/icons/pie-gray.webp'
     },
     {
       title: 'Google Play',
       description: 'Download from Google Play for Android devices',
-      icon: ''
+      icon: '/assets/icons/mobile-gray.webp'
     },
     {
       title: 'Apple App Store',
       description: 'Available on IOS App Store for iPhone and iPad',
-      icon: ''
+      icon: '/assets/icons/mobile-gray.webp'
     },
     {
       title: 'Instant Updates',
       description: 'Automatic updates across all platform with zero downtime',
-      icon: ''
+      icon: '/assets/icons/refresh-gray.webp'
+    },
+  ];
+
+  apiConnectivity = [
+    {
+      title: 'REST API',
+      description: 'Full REST API access for custom integrations and data synchronization.',
+      icon: '/assets/icons/terminal.webp'
+    },
+    {
+      title: 'CMS Integration',
+      description: 'Compatible with major digital signage CMS platforms and content management systems.',
+      icon: '/assets/icons/dashboard.webp'
+    },
+    {
+      title: 'Data Export',
+      description: 'Export analytics data in multiple formats including CSV, JSON, and PDF reports.',
+      icon: '/assets/icons/file.webp'
+    },
+    {
+      title: 'Web Socket',
+      description: 'Real-time data streaming via webhooks for instant notifications and triggers.',
+      icon: '/assets/icons/hooks.webp'
+    },
+  ];
+
+  popularIntegrations = [
+    {
+      title: 'BrightSign',
+      subTitle: 'Media Players',
+    },
+    {
+      title: 'Samsung MagicINFO',
+      subTitle: 'Display Management',
+    },
+    {
+      title: 'Google Analytics',
+      subTitle: 'Web Analytics',
+    },
+    {
+      title: 'Salesforce',
+      subTitle: 'CRM Integration',
     },
   ];
 

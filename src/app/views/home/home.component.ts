@@ -65,6 +65,7 @@ export class HomeComponent {
       description: 'Discover how artificial intelligence is revolutionizing the way we understand and measure audience behavior in 2024.',
       date: 'December 15, 2024',
       duration: '5 min read',
+      icon: '/assets/icons/signal-bg.webp'
     },
     {
       title: 'How AI Analytics Boosted ROI by 300%',
@@ -73,6 +74,7 @@ export class HomeComponent {
       description: `A comprehensive case study showing how our AI-powered vehicle analytics transformed a major retail chain's advertising strategy.`,
       date: 'December 12, 2024',
       duration: '8 min read',
+      icon: '/assets/icons/lightning-bg.webp'
     },
     {
       title: '2024 People Analytics Trends Report',
@@ -80,6 +82,7 @@ export class HomeComponent {
       color: 'text-violet-600',
       description: `Our annual report reveals the latest trends in people analytics and what they mean for the future of audience measurement.`,
       duration: '12 min read',
+      icon: '/assets/icons/location-bg.webp'
     },
   ];
 

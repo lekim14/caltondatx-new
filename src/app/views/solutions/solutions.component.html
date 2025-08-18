@@ -1,7 +1,7 @@
 <app-navigation-bar [active]="'solutions'"/>
 
-<div class="inter h-screen xl:pr-60 xl:pl-60 trial-bg flex flex-col items-center justify-center">
-    <div class="text-4xl xl:text-7xl font-bold text-white text-center">
+<div class="inter h-auto md:h-screen xl:h-screen 2xl:h-screen 2xl:pr-60 2xl:pl-60 trial-bg flex flex-col items-center justify-center">
+    <div class="text-4xl xl:text-7xl mt-20 md:mt-0 lg:mt-0 xl:mt-0 font-bold text-white text-center">
         <p>Complete Digital Signage</p>
         <p>Analytics Solutions</p>
     </div>
@@ -11,21 +11,24 @@
     </p>
     <div class="grid grid-cols-1 xl:grid-cols-3 gap-10 items-center text-center w-full p-5">
         <!-- Boxes -->
-        <div vScrollTo="#people-analytics" class="flex flex-col items-center justify-center border-[1px] hover:bg-[#7c79c0] hover:cursor-pointer bg-[#5f59c0] border-white rounded-lg p-5 pl-10 pr-10 flex-1 lg:h-65 2xl:h-55">
-            <p class="text-white text-xl xl:text-2xl font-bold mb-3">People Analytics</p>
-            <p class="text-white text-md xl:text-xl font-light">
+        <div vScrollTo="#people-analytics" class="flex flex-col items-center justify-center border-[1px] hover:bg-[#7c79c0] hover:cursor-pointer bg-[#5f59c0] border-white rounded-lg p-5 pl-10 pr-10 flex-1 lg:h-65 2xl:h-65">
+            <img src="/assets/icons/people.webp" class="w-[50px] h-[50px] mb-5" alt="">
+            <p class="text-white text-xl 2xl:text-2xl font-bold mb-3">People Analytics</p>
+            <p class="text-white text-md 2xl:text-xl font-light">
                 Understand your audience demographics and engagement patterns
             </p>
         </div>
-        <div vScrollTo="#vehicle-analytics" class="flex flex-col items-center justify-center border-[1px] hover:bg-[#7c79c0] hover:cursor-pointer bg-[#5f59c0] border-white rounded-lg p-5 pl-10 pr-10 flex-1 lg:h-65 2xl:h-55">
-            <p class="text-white text-xl xl:text-2xl font-bold mb-3">Vehicle Analytics</p>
-            <p class="text-white text-md xl:text-xl font-light">
+        <div vScrollTo="#vehicle-analytics" class="flex flex-col items-center justify-center border-[1px] hover:bg-[#7c79c0] hover:cursor-pointer bg-[#5f59c0] border-white rounded-lg p-5 pl-10 pr-10 flex-1 lg:h-65 2xl:h-65">
+            <img src="/assets/icons/truck.webp" class="w-[50px] h-[50px] mb-5" alt="">
+            <p class="text-white text-xl 2xl:text-2xl font-bold mb-3">Vehicle Analytics</p>
+            <p class="text-white text-md 2xl:text-xl font-light">
                Track traffic patterns and roadside display effectiveness
             </p>
         </div>
-        <div vScrollTo="#dashboard" class="flex flex-col items-center justify-center border-[1px] hover:bg-[#7c79c0] hover:cursor-pointer bg-[#5f59c0] border-white rounded-lg p-5 pl-10 pr-10 flex-1 lg:h-65 2xl:h-55">
-            <p class="text-white text-xl xl:text-2xl font-bold mb-3">Real-time Dashboard</p>
-            <p class="text-white text-md xl:text-xl font-light">
+        <div vScrollTo="#dashboard" class="flex flex-col items-center justify-center border-[1px] hover:bg-[#7c79c0] hover:cursor-pointer bg-[#5f59c0] border-white rounded-lg p-5 pl-10 pr-10 flex-1 lg:h-65 2xl:h-65">
+            <img src="/assets/icons/books.webp" class="w-[50px] h-[50px] mb-5" alt="">
+            <p class="text-white text-xl 2xl:text-2xl font-bold mb-3">Real-time Dashboard</p>
+            <p class="text-white text-md 2xl:text-xl font-light">
                 Monitor all your analytics in one comprehensive
             </p>
         </div>
@@ -44,7 +47,8 @@
                 engagement patterns, and behavior around your digital displays. 
             </p>
 
-            <div class="flex">
+            <div class="flex gap-2">
+                <img src="/assets/icons/user.webp" class="w-[65px] h-[55px] mb-5" alt="">
                 <div class="leading-7">
                     <p class="font-bold text-xl">Advanced Demographics Analysis</p>
                     <p class="font-light text-md">Get comprehensive breakdowns including:</p>
@@ -65,14 +69,16 @@
                 </div>
             </div>
 
-            <div class="flex mt-5">
+            <div class="flex gap-2 mt-5">
+                <img src="/assets/icons/eye.webp" class="w-[65px] h-[55px] mb-5" alt="">
                 <div class="leading-7">
                     <p class="font-bold text-xl">Attention Measurement</p>
                     <p class="font-light text-md">Track how long peaople look at your displays, which content captures attention, and optimal viewing patterns.</p>
                 </div>
             </div>
 
-            <div class="flex mt-5">
+            <div class="flex gap-2 mt-5">
+                <img src="/assets/icons/signal-green.webp" class="w-[65px] h-[55px] mb-5" alt="">
                 <div class="leading-7">
                     <p class="font-bold text-xl">Engagement Tracking</p>
                     <p class="font-light text-md">Monitor interaction rates, dwell times, and conversion metrics to measure campaign effectiveness.</p>
@@ -148,7 +154,8 @@
                 Transform your roadside digital signage with intelligent vehicle analytics. Track traffic patterns, measure display effectiveness, and optimize content based on real-time vehicle data and behavior patterns. 
             </p>
             @for (item of displayPerformance; track $index) {
-                <div class="flex w-full mt-5">
+                <div class="flex gap-5 w-full mt-5">
+                    <img [src]="item.icon" class="w-[55px] h-[50px] mb-5" alt="">
                     <div>
                         <p class="font-bold text-2xl mb-2">{{ item.title }}</p>
                         <p class="font-light text-lg">{{ item.description }}</p>
@@ -162,7 +169,7 @@
 <section id="dashboard">
     <div class="grid items-center justify-items-center inter pt-20 pb-20 pl-5 pr-5 xl:pl-30 xl:pr-30">
         <p class="font-bold text-lg xl:text-xl text-[#2563eb] mb-2">CALTON DATX DASHBOARD</p>
-        <p class="font-bold text-3xl xl:text-4xl mb-5">All Your Analytics in One Place</p>
+        <p class="font-bold text-xl md:text-2xl xl:text-3xl 2xl:text-4xl mb-5">All Your Analytics in One Place</p>
         <div class="xl:pr-100 xl:pl-100 mb-10">
             <p class="font-light text-xl text-center">
                 Experience the power of unified analytics with our comprehensive dashboard. Monitor all your digital signage performance metrics, 
@@ -171,7 +178,8 @@
         </div>
 
         <div class="w-full bg-[#273346] p-5 rounded-xl">
-            <div class="flex justify-between">
+            <div class="flex gap-3">
+                <img src="/assets/icons/signal-gradient.webp" class="w-[35px] h-[35px] mb-5" alt="">
                 <p class="font-bold text-xl xl:text-2xl text-white">Calton Datx Dashboard</p>
             </div>
             <div class="grid xl:grid-cols-4 gap-5 mt-5">
@@ -207,15 +215,18 @@
         </div>
 
         <div class="flex flex-wrap xl:flex-nowrap justify-between gap-10 mt-15">
-            <div class="bg-[#f1eefe] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="grid items-center justify-items-center bg-[#f1eefe] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <img src="/assets/icons/lightning-circle.webp" class="w-[60px] h-[60px] mb-5" alt="">
                 <p class="font-bold text-xl xl:text-2xl mb-3">Real-time Monitoring</p>
                 <p class="font-light text-md xl:text-lg mb-5">Monitor all your displays and campaigns in real-time with instant alerts and notifications.</p>
             </div>
-            <div class="bg-[#e5f0fe] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="grid items-center justify-items-center bg-[#e5f0fe] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <img src="/assets/icons/memory-chart.webp" class="w-[60px] h-[60px] mb-5" alt="">
                 <p class="font-bold text-xl xl:text-2xl mb-3">Advanced Reports</p>
                 <p class="font-light text-md xl:text-lg mb-5">Generate comprehensive reports with actionable insights and export capabilities.</p>
             </div>
-            <div class="bg-[#e5fced] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="grid items-center justify-items-center bg-[#e5fced] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <img src="/assets/icons/settings.webp" class="w-[60px] h-[60px] mb-5" alt="">
                 <p class="font-bold text-xl xl:text-2xl mb-3">Custom Alerts</p>
                 <p class="font-light text-md xl:text-lg mb-5">Set up custom alerts for performance thresholds, system issues, and campaign milestones.</p>
             </div>
@@ -224,8 +235,8 @@
 </section>
 
 <section class="inter text-white trial-bg">
-    <div class="pt-25 pb-20 xl:pl-40 xl:pr-40 text-center">
-        <div class="pl-5 pr-5 xl:pl-110 xl:pr-110">
+    <div class="pt-25 pb-20 2xl:pl-40 2xl:pr-40 text-center">
+        <div class="pl-5 pr-5 2xl:pl-110 2xl:pr-110">
             <p class="text-md xl:text-lg font-bold text-[#7ea7ed] mb-5">HARDWARE & PLATFORM INTEGRATION</p>
             <p class="font-bold text-3xl xl:text-5xl mb-5">Complete Hardware & Platform Compability</p>
             <p class="text-md xl:text-lg">
@@ -237,7 +248,8 @@
         <p class="text-2xl xl:text-3xl font-bold mt-15">Hardware Compability</p>
         <div class="grid xl:grid-cols-3 gap-7 p-5 mt-2">
             @for (item of hardwareCompability; track $index) {
-                <div class="rounded-lg p-5 text-white bg-[rgba(151,151,151,0.23)] border-[1px] border-[rgba(151,151,151,0.32)]">
+                <div class="grid items-center justify-items-center rounded-lg p-5 text-white bg-[rgba(151,151,151,0.23)] border-[1px] border-[rgba(151,151,151,0.32)]">
+                    <img [src]="item.icon" class="w-[60px] h-[60px] mb-5" alt="">
                     <p class="text-xl xl:text-2xl font-bold mb-4">{{ item.title }}</p>
                     <p class="text-md">{{ item.description }}</p>
                 </div>
@@ -247,7 +259,8 @@
         <p class="text-2xl xl:text-3xl font-bold mt-15">Platform Accessibility</p>
         <div class="grid xl:grid-cols-3 gap-7 p-5 mt-2">
             @for (item of platformAccessibility; track $index) {
-                <div class="rounded-lg p-5 text-white bg-[rgba(151,151,151,0.23)] border-[1px] border-[rgba(151,151,151,0.32)]">
+                <div class="grid items-center justify-items-center rounded-lg p-5 text-white bg-[rgba(151,151,151,0.23)] border-[1px] border-[rgba(151,151,151,0.32)]">
+                    <img [src]="item.icon" class="w-[60px] h-[60px] mb-5" alt="">
                     <p class="text-xl xl:text-2xl font-bold mb-4">{{ item.title }}</p>
                     <p class="text-md">{{ item.description }}</p>
                 </div>
@@ -257,7 +270,8 @@
         <p class="text-2xl xl:text-3xl font-bold mt-15">Calton Datx Installation</p>
         <div class="grid xl:grid-cols-4 gap-7 p-5 mt-2">
             @for (item of caltonInstallation; track $index) {
-                <div class="rounded-lg p-5 text-white bg-[rgba(151,151,151,0.23)] border-[1px] border-[rgba(151,151,151,0.32)]">
+                <div class="grid items-center justify-items-center rounded-lg p-5 text-white bg-[rgba(151,151,151,0.23)] border-[1px] border-[rgba(151,151,151,0.32)]">
+                    <img [src]="item.icon" class="w-[60px] h-[60px] mb-5" alt="">
                     <p class="text-xl xl:text-2xl font-bold mb-4">{{ item.title }}</p>
                     <p class="text-md">{{ item.description }}</p>
                 </div>
@@ -270,7 +284,7 @@
 <section class="inter">
     <div class="pt-5 pb-20 pl-5 pr-5 xl:pl-40 xl:pr-40">
         <div class="pt-10 xl:pt-25 pb-20 xl:pl-40 xl:pr-40">
-            <div class="pl-5 pr-5 xl:pl-80 xl:pr-80 text-center">
+            <div class="pl-5 pr-5 2xl:pl-80 2xl:pr-80 text-center">
                 <p class="text-md xl:text-lg font-bold text-[#3657E6] mb-5">ENTERPRISE SECURITY & API INTEGRATION</p>
                 <p class="font-bold text-3xl xl:text-5xl mb-5">Enterprise-Grade Security & Seamless Integrations</p>
                 <p class="text-md xl:text-lg">
@@ -304,10 +318,11 @@
 
         <div class="text-center font-bold text-2xl xl:text-3xl mt-20 mb-5">API Integration & Connectivity</div>
         <div class="grid xl:grid-cols-4 gap-10 p-5 mt-2">
-            @for (item of [1,2,3,4]; track $index) {
-                <div class="text-center p-5">
-                    <p class="font-bold text-xl xl:text-2xl">REST API</p>
-                    <p class="text-sm xl:text-md">Full REST API access for custom integrations and data synchronization.</p>
+            @for (item of apiConnectivity; track $index) {
+                <div class="grid items-center justify-items-center text-center p-5">
+                    <img [src]="item.icon" class="w-[60px] h-[60px] mb-5" alt="">
+                    <p class="font-bold text-xl xl:text-2xl">{{ item.title }}</p>
+                    <p class="text-sm xl:text-md">{{ item.description }}</p>
                 </div>
             }
         </div>
@@ -316,10 +331,10 @@
             <p class="font-bold text-2xl xl:text-3xl">Popular Integrations</p>
             <div class="flex flex-wrap xl:flex-nowrap gap-10">
                 <div class="grid grid-cols-2 gap-5 xl:gap-10 mt-5 w-full xl:w-[50%]">
-                    @for (item of [1,2,3,4]; track $index) {
+                    @for (item of popularIntegrations; track $index) {
                         <div class="text-center p-5 bg-white w-full">
-                            <p class="text-md xl:text-lg font-semibold">BrightSign</p>
-                            <p class="text-xs xl:text-sm font-light">Media Players</p>
+                            <p class="text-md xl:text-lg font-semibold">{{ item.title }}</p>
+                            <p class="text-xs xl:text-sm font-light">{{ item.subTitle }}</p>
                         </div>
                     }
                 </div>

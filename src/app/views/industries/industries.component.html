@@ -37,8 +37,8 @@
         <div class="grid xl:grid-cols-3 gap-10 gap-y-20 mt-10 p-5 xl:p-0">
             @for (item of industries; track $index) {
                 <div class="grid gap-5 mt-5">
-                    <div class="flex gap-5">
-                        <p>Icon</p>
+                    <div class="flex items-center gap-5">
+                        <img [src]="item.icon" class="w-[60px] h-[60px]" alt="">
                         <div class="relative inline-block">
                             <span class="text-md xl:text-xl font-semibold">{{ item.title }}</span>
                             <div class="absolute left-0 -bottom-1 h-1 w-full">
@@ -55,7 +55,7 @@
                         }
                     </ul>
 
-                    <p class="text-xs xl:text-sm font-light text-blue-500">Explore Solutions {{ '->' }}</p>
+                    <p class="text-xs xl:text-sm font-light" [style.color]="item.color">Explore Solutions {{ '->' }}</p>
                 </div>
             }
         </div>

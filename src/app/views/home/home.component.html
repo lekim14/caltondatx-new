@@ -21,25 +21,26 @@
         </div>
     </div>
 
-    <div class="grid justify-items-center inter xl:w-[50%] w-full xl:p-10">
-        <div class="text-center bg-[#443b82] xl:p-10 p-5 w-full rounded-2xl shadow-blue-200/20 shadow-lg">
+    <div class="grid justify-items-center justify-center inter xl:w-[50%] w-full xl:p-10">
+        <div class="flex flex-col items-center justify-center text-center bg-[#443b82] xl:p-10 p-5 w-full rounded-2xl shadow-blue-200/20 shadow-lg">
+            <img src="/assets/icons/bulb.webp" class="w-[60px] h-[60px] mb-5" alt="">
             <p class="mb-3 text-[#93c5fd]">AI-POWERED ANALYTICS</p>
             <p class="text-white mb-6 text-lg font-bold">Real-Time Intelligence Dashboard</p>
             <!-- Boxes -->
             <div class="grid grid-cols-2 justify-between gap-7 inter">
-                <div class="pr-5 pl-5 xl:pr-26 xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
                     <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="99" [duration]="3000"/> </p>
                     <p class="text-white text-xs">AI Accuracy %</p>
                 </div>
-                <div class="pr-5 pl-5 xl:pr-26 xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
                     <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="50" [duration]="3000"/></p>
                     <p class="text-white text-xs">Million+ Data Points</p>
                 </div>
-                <div class="pr-5 pl-5 xl:pr-26 xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
                     <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="24" [duration]="3000"/></p>
                     <p class="text-white text-xs">7 Real-time Processing</p>
                 </div>
-                <div class="pr-5 pl-5 xl:pr-26 xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
                     <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="500" [duration]="3000"/></p>
                     <p class="text-white text-xs">+ Global CLients</p>
                 </div>
@@ -61,6 +62,7 @@
 
 <div class="flex xl:flex-nowrap flex-wrap justify-between gap-10 inter p-12">
     <div vAnimateOnView class="p-6 xl:p-15 shadow-2xl">
+        <img src="/assets/icons/bulb-square.webp" class="w-[60px] h-[60px] mb-5" alt="">
         <p class="font-bold text-xl mb-5">AI Powered People Analytics</p>
         <p class="text-gray-600 mb-5">
             Advanced computer vision and machine learning algorithms track pedestrian movement patterns, 
@@ -73,6 +75,7 @@
         </ul>
     </div>
     <div vAnimateOnView class="p-6 xl:p-15 shadow-2xl">
+        <img src="/assets/icons/copy.webp" class="w-[60px] h-[60px] mb-5" alt="">
         <p class="font-bold text-xl mb-5">Smart Vehicle Intelligence</p>
         <p class="text-gray-600 mb-5">
             Neural networks analyze vehicle traffic patterns, classification, 
@@ -85,6 +88,7 @@
         </ul>
     </div>
     <div vAnimateOnView class="p-6 xl:p-15 shadow-2xl">
+        <img src="/assets/icons/lightning.webp" class="w-[60px] h-[60px] mb-5" alt="">
         <p class="font-bold text-xl mb-5">Predictive AI Insights</p>
         <p class="text-gray-600 mb-5">
             Machine learning models predict future audience behaviors, optimal campaign timing, and ROI forecasting based on historical patterns and real-time data. 
@@ -136,17 +140,19 @@
         <a href="#" class="text-sm xl:text-lg text-blue-600">View All Insights</a>
     </div>
 
-    <div class="flex flex-wrap justify-evenly">
+    <div class="grid md:grid-cols-1 xl:grid-cols-3 gap-0 2xl:grid-cols-3 justify-evenly">
         @for (item of insights; track $index) {
             <div vAnimateOnView class="p-8 flex justify-center items-center">
-                <div class="xl:w-100 h-96 bg-white rounded-lg overflow-hidden shadow-lg flex flex-col">
+                <div class="xl:w-100 2xl:h-100 md:h-100 h-100 bg-white rounded-lg overflow-hidden shadow-lg flex flex-col">
                     <!-- Top 40% Gradient -->
-                    <div class="h-[40%] bg-gradient-to-r from-purple-500 to-pink-500">
+                    <!-- <div class="h-[40%] bg-gradient-to-r from-purple-500 to-pink-500"> -->
+                    <div class="bg-cover bg-center bg-no-repeat h-[30%] md:h-[40%] xl:h-[40%]" style="background-image: url('{{ item.icon }}');">
                     </div>
+                    <!-- <img [src]="item.icon" class="2xl:block xl:block hidden" alt=""> -->
                     <!-- Bottom 60% Content -->
                     <div class="h-[60%] p-5 flex flex-col">
-                        <p class="text-md {{ item.color }} font-semibold">{{ item.type }}</p>
-                        <h2 class="text-2xl font-semibold mb-2">{{ item.title }}</h2>
+                        <p class="text-sm 2xl:text-md {{ item.color }} font-semibold">{{ item.type }}</p>
+                        <h2 class="text-lg 2xl:text-2xl font-semibold mb-2">{{ item.title }}</h2>
                         <p class="text-gray-600 text-md">{{ item.description }}</p>
                     </div>
                 </div>
