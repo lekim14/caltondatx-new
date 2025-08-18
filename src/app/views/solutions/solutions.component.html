@@ -297,21 +297,45 @@
         <div class="flex flex-wrap xl:flex-nowrap xl:justify-evenly mt-5 bg-[#f2f7fe] pl-5 pr-5">
             <div class="p-5 xl:p-10">
                 <p class="font-bold text-xl xl:text-2xl mb-2">Security Features</p>
-                <ul class="leading-10 text-sm xl:text-md">
-                    <li>256-bit SSL/TLS Encryption</li>
-                    <li>Multi-Factor Authentication (MFA)</li>
-                    <li>Role-Based Access Control (RBAC)</li>
-                    <li>Data Encryption at Rest</li>
+                <ul class="leading-10 text-sm xl:text-md list-none">
+                    <li class="flex items-center gap-2">
+                        <div [innerHTML]="sanitizedshieldSVGGreen"></div>
+                        <span>256-bit SSL/TLS Encryption</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div [innerHTML]="sanitizedshieldSVGGreen"></div>
+                        Multi-Factor Authentication (MFA)
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div [innerHTML]="sanitizedshieldSVGGreen"></div>
+                        Role-Based Access Control (RBAC)
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div [innerHTML]="sanitizedshieldSVGGreen"></div>
+                        Data Encryption at Rest
+                    </li>
                 </ul>
             </div>
 
             <div class="p-5 xl:p-10">
                 <p class="font-bold text-xl xl:text-2xl mb-2">Compliance & Standards</p>
                 <ul class="leading-10 text-sm xl:text-md">
-                    <li>GDPR Compliant</li>
-                    <li>SOC 2 Type II Certified</li>
-                    <li>ISO 27001 Standards</li>
-                    <li>Regular Security Audits</li>
+                    <li class="flex items-center gap-2">
+                        <div [innerHTML]="sanitizedshieldSVGBlue"></div>
+                        GDPR Compliant
+                    </li>
+                    <li class="flex items-center gap-2"> 
+                        <div [innerHTML]="sanitizedshieldSVGBlue"></div>
+                        SOC 2 Type II Certified
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div [innerHTML]="sanitizedshieldSVGBlue"></div>
+                        ISO 27001 Standards
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div [innerHTML]="sanitizedshieldSVGBlue"></div>
+                        Regular Security Audits
+                    </li>
                 </ul>
             </div>
         </div>
