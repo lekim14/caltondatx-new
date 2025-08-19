@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NavigationBarComponent } from '../../components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { VAnimateOnViewDirective } from '../../directives/v-animate-on-view.directive';
 import { debounceTime } from 'rxjs';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonFeatureModule } from '../../modules/common/common.module';
-import { CommonModule } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-resources',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './resources.component.html',
   styleUrl: './resources.component.css',
 })
-export class ResourcesComponent implements OnInit{
+export class ResourcesComponent implements OnInit, AfterViewInit{
   selectedResource: string = 'All Resources';
   query = new FormControl('');
   resources = [
@@ -128,7 +129,10 @@ export class ResourcesComponent implements OnInit{
     },
   ];
 
-  constructor(){
+  constructor(
+    private route: ActivatedRoute,
+    private viewportScroller: ViewportScroller
+  ){
     this.resourcesData = [...this.initResourcesData];
   }
 
@@ -138,6 +142,16 @@ export class ResourcesComponent implements OnInit{
       .subscribe(value => {
         this.handleSearchResource(value);
       });
+  }
+
+  ngAfterViewInit(): void {
+    this.route.fragment.subscribe(fragment => {
+      if(fragment){
+        setTimeout(() => {
+          this.viewportScroller.scrollToAnchor(fragment)
+        })
+      }
+    })
   }
   handleResource(source: string){
     this.selectedResource = source;

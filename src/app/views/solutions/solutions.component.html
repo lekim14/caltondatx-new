@@ -54,10 +54,10 @@
                     <p class="font-light text-md">Get comprehensive breakdowns including:</p>
                     <ul class="font-light text-md list-disc list-inside">
                         <li>
-                            <b class="font-bold">Gender Distribution: </b> Male, Female, and Non-Binary identification
+                            <b class="font-bold">Gender Distribution: </b> Male and Female
                         </li>
                         <li>
-                            <b class="font-bold">Age Groups: </b> 13-17, 18-24, 25-34, 35-44, 45-54, 55-64, 65+ years
+                            <b class="font-bold">Age Groups: </b> Teen (13-19), Young Adult (20-29), Adult (30-39), Middle Age (40-59), Middle Aged (40-59), Senior (60+)
                         </li>
                         <li>
                             <b class="font-bold">Audience Composition: </b> Peak demographics and behavioral patterns
@@ -134,8 +134,8 @@
                         @for (item of vehicleClassification; track $index) {
                             <div class="flex justify-between">
                                 <p>{{ item.label }}</p>
-                                <div class="flex items-center justify-between w-[175px]">
-                                    <div class="w-[120px] shrink-0 bg-gray-200 rounded-full h-2">
+                                <div class="flex items-center justify-end 2xl:justify-between w-[175px]">
+                                    <div class="w-[90px] md:w-[120px] xl:w-[120px] 2xl:w-[120px] shrink-0 bg-gray-200 rounded-full h-2">
                                         <div class="{{ getColorByPercentage(item.bar) }} h-2 rounded-full {{ item.width }}"></div>
                                     </div>
                                     <p class="ml-2 whitespace-nowrap">{{ item.bar }}%</p>
@@ -225,11 +225,11 @@
                 <p class="font-bold text-xl xl:text-2xl mb-3">Advanced Reports</p>
                 <p class="font-light text-md xl:text-lg mb-5">Generate comprehensive reports with actionable insights and export capabilities.</p>
             </div>
-            <div class="grid items-center justify-items-center bg-[#e5fced] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <!-- <div class="grid items-center justify-items-center bg-[#e5fced] p-10 rounded-lg text-center w-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <img src="/assets/icons/settings.webp" class="w-[60px] h-[60px] mb-5" alt="">
                 <p class="font-bold text-xl xl:text-2xl mb-3">Custom Alerts</p>
                 <p class="font-light text-md xl:text-lg mb-5">Set up custom alerts for performance thresholds, system issues, and campaign milestones.</p>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -354,11 +354,11 @@
         <div class="p-10 mt-10 bg-[#faf7fe]">
             <p class="font-bold text-2xl xl:text-3xl">Popular Integrations</p>
             <div class="flex flex-wrap xl:flex-nowrap gap-10">
-                <div class="grid grid-cols-2 gap-5 xl:gap-10 mt-5 w-full xl:w-[50%]">
+                <div class="grid md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 gap-5 xl:gap-10 mt-5 w-full xl:w-[50%]">
                     @for (item of popularIntegrations; track $index) {
-                        <div class="text-center p-5 bg-white w-full">
-                            <p class="text-md xl:text-lg font-semibold">{{ item.title }}</p>
-                            <p class="text-xs xl:text-sm font-light">{{ item.subTitle }}</p>
+                        <div class="xl:flex xl:flex-col xl:justify-center grid items-center gap-0 text-center p-5 bg-white w-full">
+                            <p class="text-sm md:text-xl xl:text-md 2xl:text-lg font-semibold">{{ item.title }}</p>
+                            <p class="text-xs 2xl:text-sm font-light">{{ item.subTitle }}</p>
                         </div>
                     }
                 </div>
