@@ -219,6 +219,29 @@ export class SolutionsComponent implements AfterViewInit {
     },
   ];
 
+  dashboardReports = [
+    {
+      value: '18,247',
+      title: 'Total Impressions',
+      percentage: '+12.5%'
+    },
+    {
+      value: '4.8s',
+      title: 'Avg. View Time',
+      percentage: '+8.2%'
+    },
+    {
+      value: '73%',
+      title: 'Engagement Rate',
+      percentage: '-2.1%'
+    },
+    {
+      value: '$2,847',
+      title: 'Revenue Impact',
+      percentage: '+15.7%'
+    },
+  ]
+
   popularIntegrations = [
     {
       title: 'VCastplay',
