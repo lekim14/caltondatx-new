@@ -1,14 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-enum Analytics{
-  DATA_POINTS = 'data-points',
-  REGISTERED_USERS = 'registered-clients',
-  PEOPLE_ANALYTICS = 'people',
-  TOP_AGE_GROUP_COUNT = 'people/age-groups',
-  VEHICLE_ANALYTICS = 'vehicle',
-  VEHICLE_TYPE_COUNT = 'vehicle/type'
-}
+import { Analytics } from '../interface/Analytics.I';
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +23,10 @@ export class AnalyticsService {
   getTopAgeGroup = () => this.fetchAPI(Analytics.TOP_AGE_GROUP_COUNT);
   getVehicleAnalytics = () => this.fetchAPI(Analytics.VEHICLE_ANALYTICS);
   getVehicleTypeCount = () => this.fetchAPI(Analytics.VEHICLE_TYPE_COUNT);
+  getVehiclePeakHours = () => this.fetchAPI(Analytics.PEAK_HOURS);
+  getVehicleTopIndustry = () => this.fetchAPI(Analytics.VEHICLE_TOP_INDUSTRY);
+
+  email(body: any){
+    return this.http.post(`${this.API_BASE_URL}/website/send-inquiry`, body, { 'headers' : this.HEADERS });
+  }
 }

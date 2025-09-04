@@ -1,4 +1,4 @@
-<app-navigation-bar [active]="'solutions'"/>
+<app-navigation-bar [active]="'get-started'"/>
 
 <div class="xl:bg-red-400 lg:bg-green-400 lg:h-max md:bg-yellow-400 inter h-auto pb-10 md:h-max xl:h-screen 2xl:h-screen 2xl:pr-60 2xl:pl-60 trial-bg flex flex-col items-center justify-center">
     <div class="pl-3 pr-3 text-3xl xl:text-7xl lg:text-5xl md:text-4xl mt-20 md:mt-20 lg:mt-20 xl:mt-0 font-bold text-white text-center poppins">
@@ -49,7 +49,7 @@
                     <img src="/assets/icons/message.webp" class="w-[40px] h-[40px] rounded-lg 2xl:mb-5" alt="">
                     <div>
                         <p class="font-bold text-lg 2xl:text-2xl">Email</p>
-                        <p class="text-sm 2xl:text-xl text-[#2764eb]">inquire&#64;nyxsys.ph</p>
+                        <p class="text-sm 2xl:text-xl text-[#2764eb]">info&#64;caltondatx.com</p>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                     Monday - Friday
                     </p>
                     <p class="text-gray-500">
-                        9:00 AM - 6:00 PM EST
+                        8:00 AM - 5:00 PM EST
                     </p>
                 </div>
             </div>
@@ -113,7 +113,7 @@
             <div>
                 <p class="font-bold text-center text-xl 2xl:text-2xl mt-5 mb-5">What can we help you with?</p>
                 <div class="grid 2xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-5">
-                    <div class="shadow-md p-7 rounded-xl border-gray-300 border-1">
+                    <div (click)="handleServiceType('Request Demo')" [ngClass]="{ 'border-blue-400 border-1' : serviceType === 'Request Demo' }" class="cursor-pointer shadow-md p-7 rounded-xl">
                         <div class="flex items-center gap-3">
                             <img src="/assets/icons/video.webp" class="w-[45px] h-[45px] rounded-lg" alt="">
                             <p class="font-bold text-lg 2xl:text-2xl">Request Demo</p>
@@ -122,7 +122,7 @@
                             See our platform in action with a personalized walkthrough
                         </p>
                     </div>
-                    <div class="shadow-md p-7 rounded-xl border-gray-300 border-1">
+                    <div (click)="handleServiceType('Start Free Trial')" [ngClass]="{ 'border-blue-400 border-1' : serviceType === 'Start Free Trial' }" class="cursor-pointer shadow-md p-7 rounded-xl">
                         <div class="flex items-center gap-3">
                             <img src="/assets/icons/lightning-green.webp" class="w-[45px] h-[45px] rounded-lg" alt="">
                             <p class="font-bold text-lg 2xl:text-2xl">Start Free Trial</p>
@@ -131,7 +131,7 @@
                             Try it risk-free for 30 days with full access
                         </p>
                     </div>
-                    <div class="shadow-md p-7 rounded-xl border-gray-300 border-1">
+                    <div (click)="handleServiceType('Expert Consultation')" [ngClass]="{ 'border-blue-400 border-1' : serviceType === 'Expert Consultation' }" class="cursor-pointer shadow-md p-7 rounded-xl">
                         <div class="flex items-center gap-3">
                             <img src="/assets/icons/users.webp" class="w-[45px] h-[45px] rounded-lg" alt="">
                             <p class="font-bold text-lg 2xl:text-2xl">Expert Consultation</p>
@@ -140,7 +140,7 @@
                             Speak with our analytics specialists
                         </p>
                     </div>
-                    <div class="shadow-md p-7 rounded-xl border-gray-300 border-1">
+                    <div (click)="handleServiceType('Get Pricing')" [ngClass]="{ 'border-blue-400 border-1' : serviceType === 'Get Pricing' }" class="cursor-pointer shadow-md p-7 rounded-xl">
                         <div class="flex items-center gap-3">
                             <img src="/assets/icons/dollar-orange.webp" class="w-[45px] h-[45px] rounded-lg" alt="">
                             <p class="font-bold text-lg 2xl:text-2xl">Get Pricing</p>
@@ -151,43 +151,44 @@
                     </div>
                 </div>
             </div>
+            <form [formGroup]="form">
             <div class="grid 2xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-5 md:gap-7 mt-10">
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">First Name *</label>
-                    <input type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="John">
+                    <input formControlName="firstName" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="John">
                 </div>
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Last Name *</label>
-                    <input type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="Doe">
+                    <input formControlName="lastName" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="Doe">
                 </div>
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Business Email *</label>
-                    <input type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="john.doe&#64;company.com">
+                    <input formControlName="businessEmail" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="john.doe&#64;company.com">
                 </div>
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Phone Number</label>
-                    <input type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="+1 (555) 123-4567">
+                    <input formControlName="phoneNumber" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="+1 (555) 123-4567">
                 </div>
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Company Name *</label>
-                    <input type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="Your Company">
+                    <input formControlName="companyName" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="Your Company">
                 </div>
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Job Title</label>
-                    <input type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="Marketing Manager">
+                    <input formControlName="jobTitle" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="Marketing Manager">
                 </div>
             </div>
             <div class="grid gap-2 mt-10">
                 <label class="text-sm 2xl:text-md font-semibold">Industry</label>
-                <select name="" id="" class="bg-gray-200 border-gray-300 border-1 p-2 rounded-xl">
+                <select formControlName="industry" name="" id="" class="bg-gray-200 border-gray-300 border-1 p-2 rounded-xl">
                     <option value="">Select your industry</option>
-                    <option value="">Health Care</option>
-                    <option value="">Education</option>
+                    <option value="Health Care">Health Care</option>
+                    <option value="Education">Education</option>
                 </select>
             </div>
             <div class="grid gap-2 mt-10">
                 <label class="text-sm 2xl:text-md font-semibold">Tell me about your project</label>
-                <textarea rows="5" class="border-gray-300 text-gray-400 border-1 p-3 rounded-xl" placeholder="Describe your digital signage goals, current setup, or specific requirements"></textarea>
+                <textarea formControlName="project" rows="5" class="border-gray-300 text-gray-400 border-1 p-3 rounded-xl" placeholder="Describe your digital signage goals, current setup, or specific requirements"></textarea>
             </div>
             <div class="flex gap-2 mt-10">
                 <input id="check" type="checkbox">
@@ -197,7 +198,7 @@
                 </label>
             </div>
 
-            <div class="mt-10 p-4 2xl:p-7 text-center text-white bg-[#6068f1] rounded-xl drop-shadow-2xl shadow-2xl">
+            <div (click)="send()" [ngClass]="{ 'bg-gray-400' : sending, 'cursor-wait' : sending }" class="mt-10 p-4 2xl:p-7 text-center text-white bg-[#6068f1] rounded-xl drop-shadow-2xl shadow-2xl cursor-pointer">
                 <p class="font-bold text-lg 2xl:text-xl">Send Message</p>
             </div>
             <div class="grid place-items-center">
@@ -206,6 +207,7 @@
                     We'll respond within 24 hours
                 </div>
             </div>
+            </form>
         </div>
     </div>
 </section>

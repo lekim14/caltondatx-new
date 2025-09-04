@@ -19,6 +19,7 @@ export interface I_VehicleAnalytics{
 export interface I_VehicleType{
     type: VehicleTypes;
     total: number;
+    totalImpression: number;
 }
 export enum VehicleTypes{
     CAR = 'Car',
@@ -40,4 +41,15 @@ export enum AgeGroup{
 export interface I_AgeGroup{
     ageGroup: AgeGroup;
     total: number;
+}
+
+export enum Analytics{
+  DATA_POINTS = 'data-points',
+  REGISTERED_USERS = 'registered-clients',
+  PEOPLE_ANALYTICS = 'people',
+  TOP_AGE_GROUP_COUNT = 'people/age-groups',
+  VEHICLE_ANALYTICS = 'vehicle',
+  VEHICLE_TYPE_COUNT = 'vehicle/type',
+  PEAK_HOURS = 'vehicle/peak-hours',
+  VEHICLE_TOP_INDUSTRY = 'vehicle/top-industry'
 }

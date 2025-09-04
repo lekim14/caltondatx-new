@@ -78,25 +78,25 @@ export class SolutionsComponent implements AfterViewInit {
   vehicleAnalyticsData = [
     {
       label: 'Vehicles Today',
-      value: 15432,
+      value: 0,
       color: 'text-white',
       extension: ''
     },
     {
       label: 'Avg. Speed',
-      value: 45,
+      value: 0 || '0',
       color: 'text-[#86efac]',
-      extension: 'mph'
+      extension: ' kph'
     },
     {
       label: 'Ave. Dwell Time',
-      value: 3.8,
+      value: 0,
       color: 'text-[#93c5fd]',
       extension: 's'
     },
     {
       label: 'Car vs Trucks',
-      value: 72,
+      value: 0,
       color: 'text-white',
       extension: ''
     },
@@ -237,23 +237,23 @@ export class SolutionsComponent implements AfterViewInit {
 
   dashboardReports = [
     {
-      value: '18,247',
-      title: 'Total Impressions',
+      value: 0 || '',
+      title: 'Top Vehicle Count',
       percentage: '+12.5%'
     },
     {
-      value: '4.8s',
-      title: 'Avg. View Time',
+      value: '',
+      title: 'Top Vehicle Group',
       percentage: '+8.2%'
     },
     {
-      value: '73%',
-      title: 'Engagement Rate',
+      value: 0,
+      title: 'Top Vehicle Group by Impressions',
       percentage: '-2.1%'
     },
     {
-      value: '$2,847',
-      title: 'Revenue Impact',
+      value: '',
+      title: 'Top Industry',
       percentage: '+15.7%'
     },
   ]
@@ -294,6 +294,7 @@ export class SolutionsComponent implements AfterViewInit {
     averageAttentionTime: 0, 
     totalWatcher: 0 
   };
+  peakHours: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -317,7 +318,14 @@ export class SolutionsComponent implements AfterViewInit {
   }
 
   async initializeData(){
-    await Promise.all([this.initPeopleAnalytics(), this.initTopAgeGroup(), this.initVehicleAnalytics(), this.initVehicleTypeCount()]);
+    await Promise.all([
+      this.initPeopleAnalytics(), 
+      this.initTopAgeGroup(), 
+      this.initVehicleAnalytics(), 
+      this.initVehicleTypeCount(), 
+      this.initVehicleTopIndustry(),
+      this.initVehiclePeakHours()
+    ]);
   }
 
   initPeopleAnalytics(): void{
@@ -337,8 +345,25 @@ export class SolutionsComponent implements AfterViewInit {
       next:(res: any) => {
         const response: I_VehicleAnalytics = res;
         this.vehicleAnalyticsData[0].value = response.totalCount || 0;
-        this.vehicleAnalyticsData[1].value = response.averageSpeed || 0;
+        this.vehicleAnalyticsData[1].value = response.averageSpeed.toFixed() || 0;
         this.vehicleAnalyticsData[2].value = response.averageDwellTime || 0;
+      }
+    })
+  }
+
+  initVehicleTopIndustry(){
+    this.analyticsService.getVehicleTopIndustry().subscribe({
+      next:(res: any) => {
+        const response: { count: number, industry: string } = res;
+        this.dashboardReports[3].value = `${response.industry}`;
+      }
+    })
+  }
+
+  initVehiclePeakHours(){
+    this.analyticsService.getVehiclePeakHours().subscribe({
+      next:(res: any) => {
+        this.peakHours = res;
       }
     })
   }
@@ -354,6 +379,17 @@ export class SolutionsComponent implements AfterViewInit {
         this.vehicleClassification[4].bar = this.getVehicleType(VehicleTypes.BUS, response).total || 0;
         this.vehicleClassification[5].bar = this.getVehicleType(VehicleTypes.TRUCK, response).total || 0;
         this.getTopVehicle(response);
+
+        // Top Vehicle Count
+        this.dashboardReports[0].value = Math.max(...response.map(v => v.total)).toLocaleString();
+        // Top Vehicle Group
+        this.dashboardReports[1].value = response.reduce((max, vehicle) =>
+                                            vehicle.total > max.total ? vehicle : max
+                                          ).type;
+        // Top Vehicle Group by Impressions
+        this.dashboardReports[2].value = response.reduce((max, vehicle) =>
+                                            vehicle.totalImpression > max.totalImpression ? vehicle : max
+                                          ).type;
       }
     })
   }
@@ -395,6 +431,8 @@ export class SolutionsComponent implements AfterViewInit {
     );
     this.analyticsData[3].value = this.breakDownData.filter(data => data.ageGroup === top.ageGroup)[0].label || '';
   }
+
+  // Dashboard
 
   formatNumber(value: number | string): string {
     if(typeof value === 'string') return value;

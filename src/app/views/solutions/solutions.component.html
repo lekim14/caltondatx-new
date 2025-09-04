@@ -187,7 +187,7 @@
                     <div class="p-5 rounded-lg bg-[rgba(151,151,151,0.32)] border-[1px] border-[rgba(151,151,151,0.32)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:bg-[rgba(245,242,242,0.32)]">
                         <p class="text-xl xl:text-2xl font-bold text-white {{ item }}">{{ item.value }}</p>
                         <p class="font-light text-white text-md">{{ item.title }}</p>
-                        <p class="text-xs text-red-300 mt-1">{{ item.percentage }}</p>
+                        <!-- <p class="text-xs text-red-300 mt-1">{{ item.percentage }}</p> -->
                     </div>
                 }
                 <div class="flex flex-wrap md:flex-nowrap gap-10 xl:col-span-2 p-5 rounded-lg bg-[rgba(151,151,151,0.32)] border-[1px] border-[rgba(151,151,151,0.32)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:bg-[rgba(245,242,242,0.32)]">
@@ -203,19 +203,9 @@
                     <div>
                         <p class="font-bold text-lg xl:text-xl text-white mb-3">Peak Hours</p>
                         <ul class="list-disc list-inside">
-                            @for (item of [1,2,3,4,5,6,7,8,9,10]; track $index) {
+                            @for (item of peakHours?.peakHours; track $index) {
                                 <div class="flex justify-between items-center justify-items-center mb-1">
-                                    <li class="marker:text-[#4ade80] marker:text-2xl text-white">06:00 - 07:00</li>
-                                </div>
-                            }
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="font-bold text-lg xl:text-xl text-white mb-3">Non Peak Hours</p>
-                        <ul class="list-disc list-inside">
-                            @for (item of [1,2,3]; track $index) {
-                                <div class="flex justify-between items-center justify-items-center mb-1">
-                                    <li class="marker:text-[#4ade80] marker:text-2xl text-white">07:00 - 08:00</li>
+                                    <li class="marker:text-[#4ade80] marker:text-2xl text-white">{{ item.hour }}</li>
                                 </div>
                             }
                         </ul>
@@ -223,11 +213,10 @@
                 </div>
 
                 <div class="xl:col-span-2 p-5 rounded-lg bg-[rgba(151,151,151,0.32)] border-[1px] border-[rgba(151,151,151,0.32)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:bg-[rgba(245,242,242,0.32)]">
-                    <p class="font-bold text-lg xl:text-xl text-white mb-3">Top Industry</p>
-                    @for (item of [1,2,3]; track $index) {
-                        <div class="flex gap-10 items-center justify-items-center mb-1">
-                            <p class="text-white">Vistar</p>
-                            <p class="text-[#4ade80]">250,799</p>
+                    <p class="font-bold text-lg xl:text-xl text-white mb-3">Non Peak Hours</p>
+                    @for (item of peakHours?.nonPeakHours; track $index) {
+                        <div class="flex justify-between items-center justify-items-center mb-1">
+                            <li class="marker:text-[#4ade80] marker:text-2xl text-white">{{ item.hour }}</li>
                         </div>
                     }
                 </div>
