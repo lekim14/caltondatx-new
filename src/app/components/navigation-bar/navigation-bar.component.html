@@ -1,16 +1,16 @@
 <div class="flex sticky top-0 z-50 inter justify-between pr-5 pl-5 xl:pr-10 xl:pl-10 pt-3 pb-3 bg-white shadow-md">
     <div class="flex items-center cursor-pointer" [routerLink]="['/']">
-        <p class="font-bold text-2xl mr-2">Calton Datx</p>
+        <span class="font-bold text-2xl mr-2">Calton Datx</span>
         <span class="text-[10px] font-bold text-blue-500">AI ANALYTICS</span>
     </div>
     
     <!-- Links -->
-    <div class="xl:flex hidden justify-around t items-center gap-6 cursor-pointer">
+    <div class="xl:flex hidden justify-around t items-center gap-6">
         <a [routerLink]="['/solutions']" routerLinkActive="solutions" class="font-medium {{ isActive('solutions') }} cursor-pointer">Solutions</a>
         <a [routerLink]="['/industries']" routerLinkActive="industries" class="font-medium {{ isActive('industries') }} cursor-pointer">Industries</a>
         <a [routerLink]="['/resources']" routerLinkActive="resources" class="font-medium {{ isActive('resources') }} cursor-pointer">Resources</a>
         <a [routerLink]="['/about']" routerLinkActive="about" class="font-medium {{ isActive('about') }} cursor-pointer">About</a>
-        <button class="p-2 pl-4 pr-4 text-white bg-blue-600 rounded-md" type="button">Get Started</button>
+        <button [routerLink]="['/get-started']" class="p-2 pl-4 pr-4 text-white bg-blue-600 rounded-md cursor-pointer" type="button">Get Started</button>
     </div>
 
     <!-- Hamburger Button (only shown on small screens) -->
@@ -27,12 +27,12 @@
 <!-- Overlay & Mobile Menu -->
 <div id="overlay" class="fixed inset-0 z-40 bg-gray-500 xl:opacity-0 opacity-80 hidden"></div>
 <!-- Mobile Menu (hidden by default) -->
-<div id="mobileMenu" class="xl:hidden hidden px-5 pb-4 gap-4 fixed bg-white w-full">
+<div id="mobileMenu" class="xl:hidden hidden px-5 pb-5 pt-5 gap-4 fixed bg-white w-full">
     <a [routerLink]="['/solutions']" routerLinkActive="solutions" class="font-medium {{ isActive('solutions') }} cursor-pointer">Solutions</a>
     <a [routerLink]="['/industries']" routerLinkActive="industries" class="font-medium {{ isActive('industries') }} cursor-pointer">Industries</a>
     <a [routerLink]="['/resources']" routerLinkActive="resources" class="font-medium {{ isActive('resources') }} cursor-pointer">Resources</a>
     <a [routerLink]="['/about']" routerLinkActive="about" class="font-medium {{ isActive('about') }} cursor-pointer">About</a>
-    <button class="w-fit px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-md transition" type="button">
+    <button [routerLink]="['/get-started']" class="w-fit px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-md transition cursor-pointer" type="button">
         Get Started
     </button>
 </div>

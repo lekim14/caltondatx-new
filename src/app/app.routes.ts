@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
     // { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -47,4 +48,25 @@ export const routes: Routes = [
             ogUrl: 'your og url'
         }
     },
+    {
+        path: 'get-started',
+        loadComponent: () => import('./views/get-started/get-started.component').then(m => m.GetStartedComponent),
+        data: {
+            title: 'Calton Datx | Get Started',
+            description:'Description Meta Tag Content',
+            ogUrl: 'your og url'
+        }
+    },
 ];
+
+const routerOptions: ExtraOptions = {
+  anchorScrolling: 'enabled',
+  scrollPositionRestoration: 'enabled' // optional but useful
+};
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, routerOptions)],
+  exports: [RouterModule]
+})
+
+export class Approutes {}

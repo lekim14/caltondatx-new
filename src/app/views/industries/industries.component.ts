@@ -53,6 +53,82 @@ export class IndustriesComponent {
       icon: '/assets/icons/transfer.webp',
       color: '#ca8a04'
     },
+  ];
+
+  doohKeyFeatures = [
+    {
+      title: 'OTS (Oppotunity to See)',
+      description: 'Counts how many people and vehicles had the chance to view the ad.',
+      icon: '/assets/icons/ots.webp'
+    },
+    {
+      title: 'Audience Demographics',
+      description: 'Detects gender and age brackets (without storing personal images, ensuring privacy compliance).',
+      icon: '/assets/icons/audience.webp'
+    },
+    {
+      title: 'People & Vehicle Watchers',
+      description: 'Measures how many actually watched the content vs. just passing by.',
+      icon: '/assets/icons/signal-green.webp'
+    },
+    {
+      title: 'Dwell Time Analysis',
+      description: 'Tracks how long an audience stays within ad visibility range.',
+      icon: '/assets/icons/clock-orange.webp'
+    },
+    {
+      title: 'Campaign Performance Reporting',
+      description: 'Automated reports for advertisers and brands to prove ad effectiveness.',
+      icon: '/assets/icons/sim.webp'
+    },
+    {
+      title: 'Data Privacy Compliant',
+      description: 'No image or video storage — only metadata and counts are processed.',
+      icon: '/assets/icons/lock.webp'
+    }
+  ];
+
+  physicalStoreKeyFeatures = [
+    {
+      title: 'Foot Traffic Monitoring',
+      description: 'Count visitors entering and exiting the store.',
+      icon: '/assets/icons/people-blue.webp'
+    },
+    {
+      title: 'Heatmaps & Shopper Flow',
+      description: 'Visualize how customers move inside the store, identifying hotspots and underutilized areas.',
+      icon: '/assets/icons/map-violet.webp'
+    },
+    {
+      title: 'Dwell Time Tracking',
+      description: 'Measure how long shoppers stay in different zones.',
+      icon: '/assets/icons/clock-green.webp'
+    },
+    {
+      title: 'Repeat Visitor Estimation',
+      description: 'Identify patterns of returning customers.',
+      icon: '/assets/icons/refresh-orange.webp'
+    },
+    {
+      title: 'Peak Hours Analysis',
+      description: 'Track busiest times of the day/week/month.',
+      icon: '/assets/icons/signal-blue.webp'
+    },
+    {
+      title: 'POS Integration (Optional)',
+      description: 'Correlates sales data with traffic insights to measure conversion rates.',
+      icon: '/assets/icons/quick-orange.webp'
+    },
+    {
+      title: 'Zone Performance',
+      description: 'Compare different store sections for layout optimization.',
+      icon: '/assets/icons/building-green.webp'
+    },
+    {
+      title: 'Dashboard & Reports',
+      description: 'Easy-to-use dashboard with downloadable insights for management decisions.',
+      icon: '/assets/icons/sim-pink.webp'
+    },
   ]
 
 }

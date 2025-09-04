@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { VScrollToDirective } from '../../directives/v-scroll-to.directive';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { AnalyticsService } from '../../services/analytics.service';
+import { AgeGroup, I_AgeGroup, I_PeopleAnalytics, I_VehicleAnalytics, I_VehicleType, VehicleTypes } from '../../interface/Analytics.I';
 
 @Component({
   selector: 'app-solutions',
@@ -13,28 +15,37 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrl: './solutions.component.css'
 })
 export class SolutionsComponent implements AfterViewInit {
-
   breakDownData = [
     {
-      label: '18-24 years',
-      bar: 22,
+      label: '13-19',
+      ageGroup: 'Teen',
+      bar: 0,
       width: 'w-[22%]'
     },
     {
-      label: '25-34 years',
-      bar: 35,
+      label: '20-29',
+      ageGroup: 'Young Adult',
+      bar: 0,
       width: 'w-[35%]'
     },
     {
-      label: '35-44 years',
-      bar: 28,
+      label: '30-39',
+      ageGroup: 'Adult',
+      bar: 0,
       width: 'w-[28%]'
     },
     {
-      label: '45+ years',
-      bar: 15,
+      label: '40-59',
+      ageGroup: 'Middle Age',
+      bar: 0,
       width: 'w-[15%]'
-    }
+    },
+    {
+      label: '60+',
+      ageGroup: 'Senior',
+      bar: 0,
+      width: 'w-[15%]'
+    },
   ];
 
   analyticsData = [
@@ -87,7 +98,7 @@ export class SolutionsComponent implements AfterViewInit {
       label: 'Car vs Trucks',
       value: 72,
       color: 'text-white',
-      extension: '%'
+      extension: ''
     },
   ];
 
@@ -98,7 +109,7 @@ export class SolutionsComponent implements AfterViewInit {
       width: 'w-[72%]'
     },
     {
-      label: 'Cars',
+      label: 'Car',
       bar: 18,
       width: 'w-[18%]'
     },
@@ -114,6 +125,11 @@ export class SolutionsComponent implements AfterViewInit {
     },
     {
       label: 'Bus',
+      bar: 17,
+      width: 'w-[17%]'
+    },
+    {
+      label: 'Truck',
       bar: 17,
       width: 'w-[17%]'
     }
@@ -269,11 +285,21 @@ export class SolutionsComponent implements AfterViewInit {
 
   sanitizedshieldSVGGreen: SafeHtml;
   sanitizedshieldSVGBlue: SafeHtml;
+  peopleAnalytics: I_PeopleAnalytics = { 
+    totalOTS: 0, 
+    otsDuration: 0, 
+    totalViewers: 0, 
+    watcherDurations: 0, 
+    engagementRate: 0, 
+    averageAttentionTime: 0, 
+    totalWatcher: 0 
+  };
 
   constructor(
     private route: ActivatedRoute,
     private viewportScroller: ViewportScroller,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private analyticsService: AnalyticsService
   ){
     this.sanitizedshieldSVGGreen = this.sanitizer.bypassSecurityTrustHtml(this.shieldSVGGreen);
     this.sanitizedshieldSVGBlue = this.sanitizer.bypassSecurityTrustHtml(this.shieldSVGBlue);
@@ -286,7 +312,88 @@ export class SolutionsComponent implements AfterViewInit {
           this.viewportScroller.scrollToAnchor(fragment)
         })
       }
+    });
+    this.initializeData();
+  }
+
+  async initializeData(){
+    await Promise.all([this.initPeopleAnalytics(), this.initTopAgeGroup(), this.initVehicleAnalytics(), this.initVehicleTypeCount()]);
+  }
+
+  initPeopleAnalytics(): void{
+    this.analyticsService.getPeopleAnalytics().subscribe({
+      next:(res: any) => {
+        const response: I_PeopleAnalytics = res;
+        // this.peopleAnalytics = res;
+        this.analyticsData[0].value = response.totalViewers;
+        this.analyticsData[1].value = response.averageAttentionTime;
+        this.analyticsData[2].value = response.engagementRate;
+      }
     })
+  }
+
+  initVehicleAnalytics(){
+    this.analyticsService.getVehicleAnalytics().subscribe({
+      next:(res: any) => {
+        const response: I_VehicleAnalytics = res;
+        this.vehicleAnalyticsData[0].value = response.totalCount || 0;
+        this.vehicleAnalyticsData[1].value = response.averageSpeed || 0;
+        this.vehicleAnalyticsData[2].value = response.averageDwellTime || 0;
+      }
+    })
+  }
+
+  initVehicleTypeCount(){
+    this.analyticsService.getVehicleTypeCount().subscribe({
+      next:(res: any) => {
+        const response: I_VehicleType[] = res;
+        this.vehicleClassification[0].bar = this.getVehicleType(VehicleTypes.MOTORCYCLE, response).total || 0;
+        this.vehicleClassification[1].bar = this.getVehicleType(VehicleTypes.CAR, response).total || 0;
+        this.vehicleClassification[2].bar = this.getVehicleType(VehicleTypes.VAN, response).total || 0;
+        this.vehicleClassification[3].bar = this.getVehicleType(VehicleTypes.TRAIN, response).total || 0;
+        this.vehicleClassification[4].bar = this.getVehicleType(VehicleTypes.BUS, response).total || 0;
+        this.vehicleClassification[5].bar = this.getVehicleType(VehicleTypes.TRUCK, response).total || 0;
+        this.getTopVehicle(response);
+      }
+    })
+  }
+  getVehicleType(type: VehicleTypes, data: I_VehicleType[]){
+    return data.filter(dat => dat.type === type)[0]
+  }
+
+  getTopVehicle(data: I_VehicleType[]){
+    const top = Math.max(...data.map(age => age.total))
+    // const top = data.reduce((max, vehicle) =>
+    //   vehicle.total > max.total ? vehicle : max
+    // );
+    this.vehicleAnalyticsData[3].value = top || 0;
+  }
+
+  initTopAgeGroup(){
+    this.analyticsService.getTopAgeGroup().subscribe({
+      next:(res: any) => {
+        const response: I_AgeGroup[] = res;
+        // this.breakDownData[0].bar = this.getAgeGroupType(AgeGroup.CHILD, response).total;
+        this.breakDownData[0].bar = this.getAgeGroupType(AgeGroup.TEEN, response).total || 0;
+        this.breakDownData[1].bar = this.getAgeGroupType(AgeGroup.YOUNG_ADULT, response).total || 0;
+        this.breakDownData[2].bar = this.getAgeGroupType(AgeGroup.ADULT, response).total || 0;
+        this.breakDownData[3].bar = this.getAgeGroupType(AgeGroup.MIDDLE_AGE, response).total || 0;
+        this.breakDownData[4].bar = this.getAgeGroupType(AgeGroup.SENIOR, response).total || 0;
+        this.getTopAgeGroup(response);
+      }
+    })
+  }
+
+  getAgeGroupType(type: AgeGroup, data: I_AgeGroup[]){
+    return data.filter(dat => dat.ageGroup === type)[0]
+  }
+
+  getTopAgeGroup(data: I_AgeGroup[]){
+    // const top = Math.max(...data.map(age => age.total))
+    const top = data.reduce((max, age) =>
+      age.total > max.total ? age : max
+    );
+    this.analyticsData[3].value = this.breakDownData.filter(data => data.ageGroup === top.ageGroup)[0].label || '';
   }
 
   formatNumber(value: number | string): string {

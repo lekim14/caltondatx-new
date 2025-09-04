@@ -1,0 +1,80 @@
+<div class="relative p-10 w-[100%] xl:w-[70%] mx-auto lg:w-[80%] shadow-xl mt-5">
+  <!-- Slides -->
+  <div class="overflow-hidden rounded-lg">
+    <div class="flex transition-transform duration-500" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+        <div class="w-full flex-shrink-0">
+            <div vAnimateOnView class="pt-6 md:p-6 xl:p-15 flex justify-center">
+                <div class="w-[40%] hidden place-items-center xl:grid lg:grid md:hidden">
+                    <img class="rounded-xl w-[400px] h-[350px]" src="/assets/images/AI-Powered People Analytics.png" alt="">
+                </div>
+                <div class="w-[100%] md:w-[60%] grid p-5">
+                    <img src="/assets/icons/bulb-square.webp" class="w-[60px] h-[60px] mb-5" alt="">
+                    <p class="font-bold text-xl mb-5">AI Powered People Analytics</p>
+                    <p class="text-gray-600 mb-5">
+                        Advanced computer vision and machine learning algorithms track pedestrian movement patterns, 
+                        demographic insights, and behavioral analytics with 99.9% accuracy.
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li class="marker:text-[#2563eb] marker:text-2xl">Real-time crowd density analysis</li>
+                        <li class="marker:text-[#2563eb] marker:text-2xl">Demographic classification</li>
+                        <li class="marker:text-[#2563eb] marker:text-2xl">Dwell time optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex-shrink-0">
+            <div vAnimateOnView class="pt-6 md:p-6 xl:p-15 flex justify-center">
+                <div class="w-[40%] hidden place-items-center xl:grid lg:grid md:hidden">
+                    <img class="rounded-xl w-[400px] h-[400px]" src="/assets/images/Predictive AI Insights.png" alt="">
+                </div>
+                <div class="w-[100%] md:w-[60%] grid p-5">
+                    <img src="/assets/icons/copy.webp" class="w-[60px] h-[60px] mb-5" alt="">
+                    <p class="font-bold text-xl mb-5">Smart Vehicle Intelligence</p>
+                    <p class="text-gray-600 mb-5">
+                        Neural networks analyze vehicle traffic patterns, classification, 
+                        and movement behaviors to optimize outdoor advertising placement and measure campaign effectiveness. 
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li class="marker:text-[#9333ea] marker:text-2xl">Vehicle type classification</li>
+                        <li class="marker:text-[#9333ea] marker:text-2xl">Traffic flow analysis</li>
+                        <li class="marker:text-[#9333ea] marker:text-2xl">Speed and direction tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex-shrink-0">
+            <div vAnimateOnView class="pt-6 md:p-6 xl:p-15 flex justify-center">
+                <div class="w-[40%] hidden place-items-center xl:grid lg:grid md:hidden">
+                    <img class="rounded-xl w-[400px] h-[350px]" src="/assets/images/Smart vehicle Intelligence.png" alt="">
+                </div>
+                <div class="w-[100%] md:w-[60%] grid p-5">
+                    <img src="/assets/icons/lightning.webp" class="w-[60px] h-[60px] mb-5" alt="">
+                    <p class="font-bold text-xl mb-5">Predictive AI Insights</p>
+                    <p class="text-gray-600 mb-5">
+                        Machine learning models predict future audience behaviors, optimal campaign timing, and ROI forecasting based on historical patterns and real-time data. 
+                    </p>
+                    <ul class="list-disc list-inside">
+                        <li class="marker:text-[#16a34a] marker:text-2xl">Audience behavior prediction</li>
+                        <li class="marker:text-[#16a34a] marker:text-2xl">Campaign</li>
+                        <li class="marker:text-[#16a34a] marker:text-2xl">ROI forecasting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button
+    (click)="prev()"
+    class="absolute top-1/2 left-2 -translate-y-1/2 bg-opacity-50 px-3 py-1 rounded hover:bg-opacity-75"
+  >
+    <svg viewBox="0 0 1024 1024" class="icon w-[30px]" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="#000000"></path></g></svg>
+  </button>
+  <button
+    (click)="next()"
+    class="absolute top-1/2 right-2 -translate-y-1/2 bg-opacity-50 text-white px-3 py-1 rounded hover:bg-opacity-75"
+  >
+    <svg viewBox="0 0 1024 1024" class="icon w-[30px]" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z" fill="#000000"></path></g></svg>
+  </button>
+</div>

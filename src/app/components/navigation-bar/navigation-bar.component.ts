@@ -23,4 +23,8 @@ export class NavigationBarComponent {
   isActive(link: string){
     return this.active === link ? 'text-blue-600' : 'text-gray-600'
   }
+
+  goto(){
+    
+  }
 }

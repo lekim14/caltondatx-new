@@ -29,19 +29,19 @@
             <!-- Boxes -->
             <div class="grid grid-cols-2 justify-between gap-7 inter">
                 <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
-                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="93" [duration]="3000"/> </p>
+                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="93" [duration]="1000"/> </p>
                     <p class="text-white text-xs">People Accuracy %</p>
                 </div>
                 <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
-                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="50" [duration]="3000"/></p>
+                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="totalDataPoints" [duration]="1000"/></p>
                     <p class="text-white text-xs">Million+ Data Points</p>
                 </div>
                 <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
-                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="95" [duration]="3000"/></p>
+                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="95" [duration]="1000"/></p>
                     <p class="text-white text-xs">Vehicle Accuracy %</p>
                 </div>
                 <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
-                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="500" [duration]="3000"/></p>
+                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="totalUsers" [duration]="1000"/></p>
                     <p class="text-white text-xs">+ Registered Clients</p>
                 </div>
             </div>
@@ -59,8 +59,8 @@
         </p>
     </div>
 </div>
-
-<div class="flex xl:flex-nowrap flex-wrap justify-between gap-10 inter p-5 md:p-8 xl:p-10 2xl:p-12">
+<app-carousel/>
+<!-- <div class="flex xl:flex-nowrap flex-wrap justify-between gap-10 inter p-5 md:p-8 xl:p-10 2xl:p-12">
     <div vAnimateOnView class="p-6 xl:p-15 shadow-2xl">
         <img src="/assets/icons/bulb-square.webp" class="w-[60px] h-[60px] mb-5" alt="">
         <p class="font-bold text-xl mb-5">AI Powered People Analytics</p>
@@ -99,7 +99,7 @@
             <li class="marker:text-[#16a34a] marker:text-2xl">ROI forecasting</li>
         </ul>
     </div>
-</div>
+</div> -->
 
 <div class="p-5 xl:p-12 mt-20 inter">
     <div class="text-center mb-5 animate-slideInUp">
@@ -109,13 +109,17 @@
         </p>
     </div>
 
-    <div class="grid xl:grid-cols-3 grid-cols-1 justify-between gap-10 mt-15">
+    <div class="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 justify-between gap-10 mt-15">
         @for (item of clients; track $index) {
             <div vAnimateOnView class="p-10 bg-[#f9fafb]">
                 <div class="flex align-middle gap-5 mb-5 items-center">
-                    <div class="w-14 h-14 rounded-full {{ item.color }} text-white flex items-center justify-center text-xl font-bold">
-                        {{ getEveryInitialLetter(item.name) }}
+                    <div class="w-24 h-24 rounded-full overflow-hidden">
+                        <img [src]="item.image" alt="Profile" class="w-full h-full object-contain" />
                     </div>
+
+                    <!-- <div class="w-14 h-14 rounded-full {{ item.color }} text-white flex items-center justify-center text-xl font-bold">
+                        {{ getEveryInitialLetter(item.name) }}
+                    </div> -->
                     <div>
                         <p class="font-semibold text-lg xl:text-xl">{{ item.name }}</p>
                         <p class="text-gray-600 text-sm xl:text-md">{{ item.industry }}</p>

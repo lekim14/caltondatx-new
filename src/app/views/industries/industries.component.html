@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<div class="pt-30 xl:pt-40 pl-5 pr-5 xl:pl-70 xl:pr-70 xl:pb-50 inter">
+<!-- <div class="pt-30 xl:pt-40 pl-5 pr-5 xl:pl-70 xl:pr-70 xl:pb-50 inter">
     <div class="grid gap-8">
         <span class="text-3xl xl:text-5xl font-light text-center mb-2 xl:mb-5">Comprehensive <span class="font-semibold">Industry Coverage</span></span>
         <p class="font-light text-md xl:text-xl text-center">
@@ -58,6 +58,115 @@
                     <p class="text-xs xl:text-sm font-light" [style.color]="item.color">Explore Solutions {{ '->' }}</p>
                 </div>
             }
+        </div>
+    </div>
+</div> -->
+<div class="pt-30 xl:pt-40 pl-5 pr-5 2xl:pl-70 2xl:pr-70 xl:pb-20 xl:pl-50 xl:pr-50 lg:pl-40 lg:pr-40 inter">
+    <div class="p-10 shadow-xl/15 rounded-xl">
+        <div class="flex gap-5 mb-10">
+            <img src="/assets/icons/video.webp" class="w-[50px] h-[50px] xl:w-[70px] xl:h-[70px] rounded-lg" alt="">
+            <div class="grid gap-5">
+                <p class="text-xl xl:text-4xl poppins font-bold">CaltonReach - Audience Analytics for DOOH</p>
+                <p class="text-md xl:text-xl text-gray-600 font-semibold">Digital Out-of-Home Analytics Platform</p>
+                <p class="text-md xl:text-xl text-gray-500">
+                    CaltonReach is a powerful analytics system designed for DOOH networks such as billboards, LED displays, and transit media. It measures real-world audience engagement by analyzing people and vehicles near your ad displays. 
+                </p>
+            </div>
+        </div>
+        <p class="text-xl xl:text-3xl font-bold poppins">Key Features:</p>
+        <div class="grid 2xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-7 mt-5">
+            @for(feature of doohKeyFeatures; track $index){
+                <div class="flex gap-3 p-7 rounded-xl border-gray-300 border-1">
+                    <img [src]="feature.icon" class="w-[40px] h-[40px] rounded-lg" alt="">
+                    <div class="">
+                        <p class="text-md xl:text-lg font-semibold">{{ feature.title }}</p>
+                        <p class="text-gray-500">{{ feature.description }}</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="mt-7 mb-7 p-5 grid gap-2 bg-[#eff4ff] border-[#cde3fe] border-1 rounded-xl">
+            <p class="text-lg xl:text-2xl font-bold poppins">Contactless Digital Signage Integration (Upcoming):</p>
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 xl:w-2 xl:h-2 rounded-full bg-blue-500 shrink-0"></div>
+                <p class="text-md">Detects and recognizes displayed ads using cameras.</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 xl:w-2 xl:h-2 rounded-full bg-blue-500 shrink-0"></div>
+                <p class="text-md">Tracks how long each ad played and its actual exposure.</p>
+            </div>
+        </div>
+
+        <p class="text-xl xl:text-2xl font-bold poppins">Use Cases:</p>
+        <div class="flex flex-wrap lg:flex-nowrap gap-2 justify-between mt-5">
+            <div class="p-5 border-1 border-[#3e8059] bg-[#edfdf5] text-[#3e8059] text-md font-semibold rounded-md">
+                Billboard operators proving ROI to advertisers
+            </div>
+            <div class="p-5 border-1 border-[#6068f1] bg-[#edfaff] text-[#6068f1] text-md font-semibold rounded-md">
+                DOOH network owners optimizing ad placement
+            </div>
+            <div class="p-5 border-1 border-[#6b21a8] bg-[#fcf3fa] text-[#6b21a8] text-md font-semibold rounded-md">
+                Media buyers comparing campaign performance
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pt-30 xl:pt-0 pl-5 pr-5 2xl:pl-70 2xl:pr-70 xl:pb-20 xl:pl-50 xl:pr-50 lg:pl-40 lg:pr-40 inter">
+    <div class="p-10 shadow-xl/15 rounded-xl">
+        <div class="flex gap-5 mb-10">
+            <img src="/assets/icons/video.webp" class="w-[50px] h-[50px] xl:w-[70px] xl:h-[70px] rounded-lg" alt="">
+            <div class="grid gap-5">
+                <p class="text-xl xl:text-4xl poppins font-bold">CaltonPath - Retail Analytics for Physical Stores</p>
+                <p class="text-md xl:text-xl text-gray-600 font-semibold">In-Store Customer Behavior Analytics</p>
+                <p class="text-md xl:text-xl text-gray-500">
+                    CaltonPath is built for retail environments like supermarkets, malls, and boutiques. It helps store managers and marketers understand customer behavior inside physical spaces.
+                </p>
+            </div>
+        </div>
+        <p class="text-xl xl:text-3xl font-bold poppins">Key Features:</p>
+        <div class="grid 2xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-7 mt-5">
+            @for(feature of doohKeyFeatures; track $index){
+                <div class="flex gap-3 p-7 rounded-xl border-gray-300 border-1">
+                    <img [src]="feature.icon" class="w-[40px] h-[40px] rounded-lg" alt="">
+                    <div class="">
+                        <p class="text-md xl:text-lg font-semibold">{{ feature.title }}</p>
+                        <p class="text-gray-500">{{ feature.description }}</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <p class="text-xl xl:text-2xl font-bold poppins">Use Cases:</p>
+        <div class="flex flex-wrap lg:flex-nowrap gap-2 justify-between mt-5">
+            <div class="p-5 border-1 border-[#3e8059] bg-[#edfdf5] text-[#3e8059] text-md font-semibold rounded-md">
+                Malls optimizing store layouts
+            </div>
+            <div class="p-5 border-1 border-[#6068f1] bg-[#edfaff] text-[#6068f1] text-md font-semibold rounded-md">
+                Supermarkets measuring promotions' effectiveness
+            </div>
+            <div class="p-5 border-1 border-[#6b21a8] bg-[#fcf3fa] text-[#6b21a8] text-md font-semibold rounded-md">
+               Retail chains comparing performance across multiple branches
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pt-30 xl:pt-0 pl-5 pr-5 2xl:pl-70 2xl:pr-70 xl:pb-50 xl:pl-50 xl:pr-50 lg:pl-40 lg:pr-40 inter">
+    <div class="bg-[#e6f5fe] border-[#0ea5e9] border-1 rounded-2xl p-7">
+        <p class="text-2xl xl:text-4xl text-center font-bold">Difference at a Glance</p>
+        <div class="flex flex-wrap md:flex-nowrap justify-between gap-10 mt-5">
+            <div class="grid place-items-center gap-2 text-center bg-white shadow-xl p-5 rounded-xl md:w-[50%]">
+                <img src="/assets/icons/video.webp" class="w-[50px] h-[50px] xl:w-[70px] xl:h-[70px] rounded-lg" alt="">
+                <p class="text-xl font-bold">CaltonReach</p>
+                <p class="text-gray-500 text-lg font-semibold">DOOH Media & Outdoor Ads Analytics</p>
+            </div>
+            <div class="grid place-items-center gap-2 text-center bg-white shadow-xl p-5 rounded-xl md:w-[50%]">
+                <img src="/assets/icons/building-pink.webp" class="w-[50px] h-[50px] xl:w-[70px] xl:h-[70px] rounded-lg" alt="">
+                <p class="text-xl font-bold">CaltonPath</p>
+                <p class="text-gray-500 text-lg font-semibold">Retail Customer & In-Store Analytics</p>
+            </div>
         </div>
     </div>
 </div>

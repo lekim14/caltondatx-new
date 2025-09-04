@@ -1,16 +1,23 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { NavigationBarComponent } from '../../components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { VAnimateOnViewDirective } from '../../directives/v-animate-on-view.directive';
 import { NumberAnimComponent } from '../../components/number-anim/number-anim.component';
-
+import { Button, ButtonModule } from 'primeng/button';
+import { CommonFeatureModule } from '../../modules/common/common.module';
+import { CommonModule } from '@angular/common';
+import { CarouselModule } from 'primeng/carousel';
+import { CarouselComponent } from '../../components/carousel/carousel.component';
+import { AnalyticsService } from '../../services/analytics.service';
 @Component({
   selector: 'app-home',
-  imports: [NavigationBarComponent, FooterComponent, VAnimateOnViewDirective, NumberAnimComponent],
+  imports: [NavigationBarComponent, FooterComponent, VAnimateOnViewDirective, NumberAnimComponent, CarouselComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit{
+
+  constructor(private analyticsService: AnalyticsService){}
 
   clients = [
     { 
@@ -19,6 +26,7 @@ export class HomeComponent {
       description: 'Calton Datx enables us to measure the impact of our billboard campaigns, providing valuable insights that help us assess the effectiveness of our investment.',
       ratings: 5,
       color: 'bg-green-600',
+      image: '/assets/images/testimonials/new balance logo.png'
     },
     { 
       name: 'IPG Brands', 
@@ -26,6 +34,7 @@ export class HomeComponent {
       description: 'When we recommend sites to clients, they often request additional data—especially traffic data—to evaluate if their investment is worthwhile. What sets Calton Datx apart is its up-to-date data, unlike other sources that rely on outdated figures.',
       ratings: 5,
       color: 'bg-purple-600',
+      image: '/assets/images/testimonials/ipg media brands.png'
     },
     { 
       name: 'Dentsu', 
@@ -33,6 +42,7 @@ export class HomeComponent {
       description: `The Indoor Report is significant for me—it's a niche set of data that helps us understand demographics more. I have not met any data providers as detailed as Calton Datx.`,
       ratings: 5,
       color: 'bg-red-600',
+      image: '/assets/images/testimonials/dentsu_logo.webp'
     },
     { 
       name: 'Spark', 
@@ -40,6 +50,7 @@ export class HomeComponent {
       description: `Calton DATx supports our campaigns by delivering the key metrics for out-of-home advertising: traffic count and impressions, which are crucial for measuring campaign effectiveness.`,
       ratings: 5,
       color: 'bg-violet-600',
+      image: '/assets/images/testimonials/Spark Media Solutions.png'
     },
     { 
       name: 'UNILAB', 
@@ -47,6 +58,7 @@ export class HomeComponent {
       description: `Calton DATx helps in our post campaign report to gauge efficiency of the sites.`,
       ratings: 5,
       color: 'bg-green-600',
+      image: '/assets/images/testimonials/UNILAB.png'
     },
     { 
       name: 'The Huddle Room', 
@@ -54,6 +66,7 @@ export class HomeComponent {
       description: `Calton DATx is highly beneficial to out-of-home advertising, providing detailed data and specific figures for targeted areas, helping us make more informed decisions.`,
       ratings: 5,
       color: 'bg-blue-600',
+      image: '/assets/images/testimonials/The Huddle room.png'
     },
   ];
 
@@ -85,8 +98,32 @@ export class HomeComponent {
       icon: '/assets/icons/location-bg.webp'
     },
   ];
+  totalUsers: number = 0;
+  totalDataPoints: number = 0;
 
+  ngAfterViewInit(): void {
+    this.initializeData();
+  }
 
+  async initializeData(){
+    await Promise.all([this.dataPoints(), this.registeredUsers()])
+  }
+
+  dataPoints(){
+    this.analyticsService.getDataPoints().subscribe({
+      next:(res: any) => {
+        this.totalDataPoints = res.total;
+      }
+    })
+  }
+
+  registeredUsers(){
+    this.analyticsService.getRegisteredUsers().subscribe({
+      next:(res: any) => {
+        this.totalUsers = res.total;
+      }
+    })
+  }
   getEveryInitialLetter(name: string): string {
     return name.split(' ').map(word => word.charAt(0).toUpperCase()).join('');
   }
