@@ -15,7 +15,7 @@
             Harness the power of artificial intelligence to unlock unprecedented audience intelligence. Our cutting-edge AI platform transforms complex data into actionable strategies with clearly defined KPIs, ensuring accuracy, transparency, and accountability. By aligning insights with measurable goals, clients gain more precise data, deeper understanding, and sustained business growth.
         </p>
         <div class="flex flex-wrap xl:flex-nowrap gap-4 text-white">
-            <button class="p-3 xl:pr-7 xl:pl-7 text-sm xl:text-lg bg-blue-600 rounded-md shadow-blue-500/30 shadow-lg xl:w-auto w-full">Experience AI Analytics</button>
+            <button [routerLink]="['/get-started']" class="cursor-pointer p-3 xl:pr-7 xl:pl-7 text-sm xl:text-lg bg-blue-600 rounded-md shadow-blue-500/30 shadow-lg xl:w-auto w-full">Experience AI Analytics</button>
             <button class="p-3 xl:pr-7 xl:pl-7 text-sm xl:text-lg border-2 rounded-md hover:border-white hover:bg-white hover:text-black hover:cursor-pointer xl:w-auto w-full">Watch Demo</button>
         </div>
     </div>
@@ -27,20 +27,20 @@
             <p class="text-white mb-6 text-lg font-bold">Real-Time Intelligence Dashboard</p>
             <!-- Boxes -->
             <div class="grid grid-cols-2 justify-between gap-7 inter">
-                <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
-                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="93" [duration]="1000"/> </p>
+                <div class="pr-5 pl-5 2xl:pr-15 2xl:pl-15 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                    <p class="text-[#7766f6] font-bold text-md md:text-3xl"><app-number-anim [targetNumber]="93" [duration]="1000"/> </p>
                     <p class="text-white text-xs">People Accuracy %</p>
                 </div>
-                <div class="pr-5 pl-5 2xl:pr-20 2xl:pl-20 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
-                    <p class="text-[#7766f6] font-bold text-3xl w-full"><app-number-anim [targetNumber]="totalDataPoints" [duration]="1000"/></p>
+                <div class="pr-5 pl-5 2xl:pr-10 2xl:pl-10 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                    <p class="text-[#7766f6] font-bold text-md md:text-3xl w-full"><app-number-anim [targetNumber]="totalDataPoints" [duration]="1000"/></p>
                     <p class="text-white text-xs">Million+ Data Points</p>
                 </div>
-                <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
-                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="95" [duration]="1000"/></p>
+                <div class="pr-5 pl-5 2xl:pr-15 2xl:pl-15 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                    <p class="text-[#7766f6] font-bold text-md md:text-3xl"><app-number-anim [targetNumber]="95" [duration]="1000"/></p>
                     <p class="text-white text-xs">Vehicle Accuracy %</p>
                 </div>
-                <div class="pr-5 pl-5 2xl:pr-26 2xl:pl-26 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
-                    <p class="text-[#7766f6] font-bold text-3xl"><app-number-anim [targetNumber]="totalUsers" [duration]="1000"/></p>
+                <div class="pr-5 pl-5 2xl:pr-15 2xl:pl-15 pt-7 pb-7 text-center bg-[#4f458a] rounded-xl">
+                    <p class="text-[#7766f6] font-bold text-md md:text-3xl"><app-number-anim [targetNumber]="totalUsers" [duration]="1000"/></p>
                     <p class="text-white text-xs">+ Registered Clients</p>
                 </div>
             </div>

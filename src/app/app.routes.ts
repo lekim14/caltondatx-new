@@ -57,6 +57,15 @@ export const routes: Routes = [
             ogUrl: 'your og url'
         }
     },
+    {
+        path: 'policy',
+        loadComponent: () => import('./components/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent),
+        data: {
+            title: 'Calton Datx | Get Started',
+            description:'Description Meta Tag Content',
+            ogUrl: 'your og url'
+        }
+    },
 ];
 
 const routerOptions: ExtraOptions = {

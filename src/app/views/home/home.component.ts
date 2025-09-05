@@ -9,9 +9,10 @@ import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { AnalyticsService } from '../../services/analytics.service';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
-  imports: [NavigationBarComponent, FooterComponent, VAnimateOnViewDirective, NumberAnimComponent, CarouselComponent],
+  imports: [NavigationBarComponent, FooterComponent, VAnimateOnViewDirective, NumberAnimComponent, CarouselComponent, CommonModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

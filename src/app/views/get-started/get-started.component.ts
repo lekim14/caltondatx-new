@@ -5,12 +5,19 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AnalyticsService } from '../../services/analytics.service';
+import { Dialog } from 'primeng/dialog';
+import { Button, ButtonDirective } from 'primeng/button';
+import { PrimeNgModule } from '../../shared/primeng.module';
+import { ModalComponent } from '../../components/modal/modal.component';
+import { PrivacyPolicyComponent } from '../../components/privacy-policy/privacy-policy.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-get-started',
-  imports: [NavigationBarComponent, ImageShadowDirective, FooterComponent, ReactiveFormsModule, CommonModule],
+  standalone: true,
+  imports: [NavigationBarComponent, ImageShadowDirective, FooterComponent, ReactiveFormsModule, CommonModule, ModalComponent, PrivacyPolicyComponent, RouterLink],
   templateUrl: './get-started.component.html',
-  styleUrl: './get-started.component.css'
+  styleUrls: ['./get-started.component.css']
 })
 export class GetStartedComponent {
   
@@ -26,6 +33,8 @@ export class GetStartedComponent {
     industry: new FormControl(null),
     project: new FormControl(null),
   });
+
+  showModal = false;
 
   constructor(private analytics: AnalyticsService){}
 

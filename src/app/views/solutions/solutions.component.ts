@@ -355,7 +355,7 @@ export class SolutionsComponent implements AfterViewInit {
     this.analyticsService.getVehicleTopIndustry().subscribe({
       next:(res: any) => {
         const response: { count: number, industry: string } = res;
-        this.dashboardReports[3].value = `${response.industry}`;
+        this.dashboardReports[3].value = `${response?.industry}` || '';
       }
     })
   }
@@ -429,7 +429,7 @@ export class SolutionsComponent implements AfterViewInit {
     const top = data.reduce((max, age) =>
       age.total > max.total ? age : max
     );
-    this.analyticsData[3].value = this.breakDownData.filter(data => data.ageGroup === top.ageGroup)[0].label || '';
+    this.analyticsData[3].value = this.breakDownData.filter(data => data.ageGroup === top.ageGroup)[0]?.label || '';
   }
 
   // Dashboard

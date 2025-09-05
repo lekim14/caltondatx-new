@@ -6,30 +6,42 @@
             <p class="text-gray-400 text-md">Transforming audience measurement through artificial intelligence and advanced analytics.</p>
         </div>
 
-        <div class="xl:w-[20%]">
-            <p class="font-bold text-lg text-white mb-2">AI Solutions</p>
-            <p class="text-gray-400 text-md">People Analytics</p>
-            <p class="text-gray-400 text-md">Vehicle Intelligence</p>
-            <p class="text-gray-400 text-md">Predictive Insights</p>
-            <p class="text-gray-400 text-md">Real-time Processing</p>
+        <div class="xl:w-[20%] flex flex-col">
+            <a [routerLink]="['/']" class="font-bold text-lg text-white mb-2">Home Page</a>
+            <a [routerLink]="['/']" class="text-gray-400 text-md">Real time Data</a>
+            <a [routerLink]="['/']" class="text-gray-400 text-md">Artificial Intelligence Meets Audience Measurement</a>
+            <a [routerLink]="['/']" class="text-gray-400 text-md">Testimonials</a>
+            <a [routerLink]="['/']" class="text-gray-400 text-md">Latest Insights</a>
         </div>
-        <div class="xl:w-[20%] w-full">
-            <p class="font-bold text-lg text-white mb-2">Industries</p>
-            <p class="text-gray-400 text-md">Retail & Consumer</p>
-            <p class="text-gray-400 text-md">Media & Advertising</p>
-            <p class="text-gray-400 text-md">Smart Cities</p>
-            <p class="text-gray-400 text-md">Transportation</p>
-        </div>
-
-        <div class="xl:w-[20%]">
-            <p class="font-bold text-lg text-white mb-2">Company</p>
-            <p class="text-gray-400 text-md">About Us</p>
-            <p class="text-gray-400 text-md">Careers</p>
-            <p class="text-gray-400 text-md">Press</p>
-            <p class="text-gray-400 text-md">Contact</p>
+        <div class="xl:w-[20%] flex flex-col">
+            <a class="font-bold text-lg text-white mb-2">Solutions</a>
+            <a [routerLink]="['/solutions']" class="text-gray-400 text-md">People Analytics</a>
+            <a [routerLink]="['/solutions']" class="text-gray-400 text-md">Vehicle Analytics</a>
+            <a [routerLink]="['/solutions']" class="text-gray-400 text-md">Dashboard</a>
+            <a [routerLink]="['/solutions']" class="text-gray-400 text-md">Hardware & Platform Integration</a>
+            <a [routerLink]="['/solutions']" class="text-gray-400 text-md">Security</a>
         </div>
 
-        
+        <div class="xl:w-[20%] flex flex-col">
+            <a class="font-bold text-lg text-white mb-2">Industries</a>
+            <a [routerLink]="['/industries']" class="text-gray-400 text-md">Industry Coverage</a>
+            <a [routerLink]="['/industries']" class="text-gray-400 text-md">Calton Path & Calton Reach</a>
+            <a [routerLink]="['/industries']" class="text-gray-400 text-md">Results</a>
+        </div>
+
+        <div class="xl:w-[20%] flex-col hidden">
+            <a class="font-bold text-lg text-white mb-2">Resources</a>
+            <a [routerLink]="['/resources']" class="text-gray-400 text-md">Insights</a>
+            <a [routerLink]="['/resources']" class="text-gray-400 text-md">Case Studies</a>
+            <a [routerLink]="['/resources']" class="text-gray-400 text-md">Whitepaper</a>
+            <a [routerLink]="['/resources']" class="text-gray-400 text-md">Industry Report</a>
+        </div>
+
+        <div class="xl:w-[20%] flex flex-col">
+            <a class="font-bold text-lg text-white mb-2">Company</a>
+            <a [routerLink]="['/about']" class="text-gray-400 text-md">About Us</a>
+            <a [routerLink]="['/get-started']" class="text-gray-400 text-md">Contact</a>
+        </div>
     </div>
     <hr class="my-6 border-t border-gray-600"/>
 
@@ -37,9 +49,16 @@
         <p class="text-md text-gray-400">© 2024 Calton Datx. All rights reserved.</p>
 
         <div class="flex xl:justify-around justify-center gap-5 xl:gap-0 xl:w-[15%] w-full text-md text-gray-400">
-            <span>Privacy</span>
+            <span class="cursor-pointer" (click)="showModal = true">Privacy</span>
             <span>Terms</span>
             <span>Security</span>
         </div>
     </div>
 </div>
+<app-modal 
+  [open]="showModal" 
+  title="Privacy Policy"
+  (close)="showModal = false"
+>
+  <app-privacy-policy/>
+</app-modal>

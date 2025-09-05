@@ -35,7 +35,7 @@
 
 <section class="inter p-5" id="people-analytics">
     <div class="pt-10 xl:pt-25 pb-20 2xl:pl-20 2xl:pr-20 flex flex-wrap gap-20 md:gap-6 xl:flex-nowrap md:flex-nowrap">
-        <div class="w-full 2xl:w-[30%] lg:w-[30%] md:w-[40%] h-max rounded-xl p-5 2xl:p-15 text-center shadow-xl/15">
+        <div class="w-full 2xl:w-[30%] lg:w-[30%] md:w-[40%] h-max rounded-xl p-5 2xl:p-10 text-center shadow-xl/15">
             <div class="grid gap-5 place-items-center pb-10 text-center">
                 <img src="/assets/icons/message.webp" class="w-[50px] 2xl:w-[70px] 2xl:h-[70px] rounded-lg" appImageShadow alt="" crossorigin="anonymous">
                 <p class="font-bold text-2xl 2xl:text-4xl poppins">Let's Connect</p>
@@ -45,19 +45,19 @@
             </div>
 
             <div class="grid gap-5">
-                <div class="bg-[#eef4ff] flex flex-nowrap 2xl:flex-wrap gap-5 text-left w-full p-5 rounded-2xl">
+                <div class="bg-[#eef4ff] flex flex-nowrap 2xl:flex-wrap gap-5 text-left w-full p-3 rounded-2xl">
                     <img src="/assets/icons/message.webp" class="w-[40px] h-[40px] rounded-lg 2xl:mb-5" alt="">
                     <div>
-                        <p class="font-bold text-lg 2xl:text-2xl">Email</p>
-                        <p class="text-sm 2xl:text-xl text-[#2764eb]">info&#64;caltondatx.com</p>
+                        <p class="font-bold text-lg 2xl:text-xl">Email</p>
+                        <p class="text-sm 2xl:text-lg text-[#2764eb]">info&#64;caltondatx.com</p>
                     </div>
                 </div>
 
-                <div class="bg-[#eefdf5] flex flex-nowrap 2xl:flex-wrap gap-5 text-left w-full mb-5 p-5 rounded-2xl">
+                <div class="bg-[#eefdf5] flex flex-nowrap 2xl:flex-wrap gap-5 text-left w-full mb-5 p-3 rounded-2xl">
                     <img src="/assets/icons/phone.webp" class="w-[40px] h-[40px] rounded-lg 2xl:mb-5" alt="">
                     <div>
-                        <p class="font-bold text-lg 2xl:text-2xl">Phone</p>
-                        <p class="text-sm 2xl:text-xl text-[#22c55e]">(02) 8684 0503 loc. 310</p>
+                        <p class="font-bold text-lg 2xl:text-xl">Phone</p>
+                        <p class="text-sm 2xl:text-lg text-[#22c55e]">(02) 8684 0503 loc. 310</p>
                     </div>
                 </div>
             </div>
@@ -95,8 +95,17 @@
             <div class="mt-15">
                 <p class="font-bold text-xl">Connect With Us</p>
                 <!-- Icons -->
-                 <div class="flex">
-
+                 <div class="flex gap-4 justify-center mt-2">
+                    <a href="https://www.facebook.com/NyxsysPh/" target="_blank" rel="noopener noreferrer">
+                        <img src="/assets/icons/socmed/facebook.png" alt="Facebook" class="w-12 h-12 object-cover" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/nyxsys-philippines/" target="_blank" rel="noopener noreferrer">
+                        <img src="/assets/icons/socmed/linkedin.png" alt="Linkedin" class="w-12 h-12 object-cover" />
+                    </a>
+                    <a href="https://www.instagram.com/nyxsysph/" target="_blank" rel="noopener noreferrer">
+                        <img src="/assets/icons/socmed/instagram.png" alt="Instagram" class="w-12 h-12 object-cover" />
+                    </a>
+                    
                  </div>
             </div>
         </div>
@@ -194,7 +203,7 @@
                 <input id="check" type="checkbox">
                 <label for="check" class="text-sm text-gray-600">
                     I agree to receive communications from Calton Datx regarding my inquiry. I understand I can unsubscribe at any time. 
-                    <a href="#" class="text-blue-500">Privacy Policy</a>
+                    <a (click)="showModal = true" class="text-blue-500">Privacy Policy</a>
                 </label>
             </div>
 
@@ -213,3 +222,10 @@
 </section>
 
 <app-footer/>
+<app-modal 
+  [open]="showModal" 
+  title="Privacy Policy"
+  (close)="showModal = false"
+>
+  <app-privacy-policy/>
+</app-modal>
