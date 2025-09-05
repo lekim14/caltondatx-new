@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationBarComponent } from '../../components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { AnalyticsService } from '../../services/analytics.service';
+import { NumberAnimComponent } from '../../components/number-anim/number-anim.component';
 
 @Component({
   selector: 'app-industries',
-  imports: [NavigationBarComponent, FooterComponent],
+  imports: [NavigationBarComponent, FooterComponent, NumberAnimComponent],
   templateUrl: './industries.component.html',
   styleUrl: './industries.component.css'
 })
-export class IndustriesComponent {
-
+export class IndustriesComponent implements OnInit {
+  dataAnalyzed = 0;
   industries = [
     {
       title: 'Retail & Consumer Goods',
@@ -129,6 +131,16 @@ export class IndustriesComponent {
       description: 'Easy-to-use dashboard with downloadable insights for management decisions.',
       icon: '/assets/icons/sim-pink.webp'
     },
-  ]
+  ];
+  
+  constructor(private analyticsService: AnalyticsService){}
+
+  ngOnInit(): void {
+      this.analyticsService.getDataPoints().subscribe({
+        next:(res: any) => {
+          this.dataAnalyzed = res?.total || 0;
+        }
+      })
+  }
 
 }
