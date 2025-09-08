@@ -225,7 +225,11 @@
 
         <div class="w-[60%] mt-10 shadow-2xl">
             <!-- <div class="absolute z-10">TEST</div> -->
-            <video class="shadow-2xl" src="/assets/videos/New Tracking Vehicles.mp4" [loop]="true" [autoplay]="true"></video>
+            <!-- <video class="shadow-2xl" src="/assets/videos/New Tracking Vehicles.mp4" [loop]="true" [autoplay]="true"></video> -->
+            <video class="shadow-2xl" [autoplay]="true" [muted]="true" [loop]="true" [playsInline]="true" preload="none">
+                <source src="/assets/videos/New Tracking Vehicles.mp4" per type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
         <div class="flex flex-wrap xl:flex-nowrap justify-between gap-10 mt-15">
@@ -394,8 +398,8 @@
         <p class="text-md xl:text-xl text-white mt-10">Join thousands of businesses already using Calton Datx to optimize their digital signage performance and maximize ROI.</p>
 
         <div class="flex flex-wrap xl:flex-nowrap justify-center gap-4 text-white mt-7 xl:mt-15 text-md xl:text-lg">
-            <button class="p-3 xl:p-6 pr-10 pl-10 bg-[#2f6aec] rounded-md text-white font-semibold w-full xl:w-auto shadow-lg">Request Demo</button>
-            <button class="p-3 xl:p-6 pr-10 pl-10 border-2 rounded-md hover:bg-white hover:text-[#2f6aec] hover:cursor-pointer font-semibold w-full xl:w-auto">Start Free Trial</button>
+            <button [routerLink]="['/get-started']" class="cursor-pointer p-3 xl:p-6 pr-10 pl-10 bg-[#2f6aec] rounded-md text-white font-semibold w-full xl:w-auto shadow-lg">Request Demo</button>
+            <button [routerLink]="['/get-started']" class="p-3 xl:p-6 pr-10 pl-10 border-2 rounded-md hover:bg-white hover:text-[#2f6aec] hover:cursor-pointer font-semibold w-full xl:w-auto">Start Free Trial</button>
         </div>
     </div>
 </section>

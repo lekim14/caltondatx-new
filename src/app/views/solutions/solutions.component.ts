@@ -1,7 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { NavigationBarComponent } from "../../components/navigation-bar/navigation-bar.component";
 import { FooterComponent } from "../../components/footer/footer.component";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { VScrollToDirective } from '../../directives/v-scroll-to.directive';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -10,7 +10,7 @@ import { AgeGroup, I_AgeGroup, I_PeopleAnalytics, I_VehicleAnalytics, I_VehicleT
 
 @Component({
   selector: 'app-solutions',
-  imports: [NavigationBarComponent, FooterComponent, VScrollToDirective],
+  imports: [NavigationBarComponent, FooterComponent, VScrollToDirective, RouterLink],
   templateUrl: './solutions.component.html',
   styleUrl: './solutions.component.css'
 })

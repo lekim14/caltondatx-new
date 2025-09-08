@@ -39,6 +39,11 @@ export class GetStartedComponent {
   constructor(private analytics: AnalyticsService){}
 
   send(){
+     if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      alert('Please complete all required fields')
+      return
+    }
     const body = {
       "firstName": this.form.value?.firstName,
       "lastName": this.form.value?.lastName,
@@ -64,6 +69,21 @@ export class GetStartedComponent {
 
   handleServiceType(type: string){
     this.serviceType = type;
+  }
+
+  get firstName() {
+    return this.form.get('firstName');
+  }
+  get lastName() {
+    return this.form.get('lastName');
+  }
+
+  get businessEmail() {
+    return this.form.get('businessEmail');
+  }
+
+  get companyName() {
+    return this.form.get('companyName');
   }
 
 }

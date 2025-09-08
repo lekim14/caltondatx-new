@@ -165,14 +165,29 @@
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">First Name *</label>
                     <input formControlName="firstName" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="John">
+                    @if (firstName?.invalid && (firstName?.dirty || firstName?.touched)) {
+                        @if (firstName?.errors?.['required']) {
+                            <span class="text-red-400"> First Name must not be empty</span>
+                        }
+                    }
                 </div>
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Last Name *</label>
                     <input formControlName="lastName" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="Doe">
+                    @if (lastName?.invalid && (lastName?.dirty || lastName?.touched)) {
+                        @if (lastName?.errors?.['required']) {
+                            <span class="text-red-400"> Last Name must not be empty</span>
+                        }
+                    }
                 </div>
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Business Email *</label>
                     <input formControlName="businessEmail" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="john.doe&#64;company.com">
+                    @if (businessEmail?.invalid && (businessEmail?.dirty || businessEmail?.touched)) {
+                        @if (businessEmail?.errors?.['required']) {
+                            <span class="text-red-400"> Email must not be empty</span>
+                        }
+                    }
                 </div>
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Phone Number</label>
@@ -181,6 +196,11 @@
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Company Name *</label>
                     <input formControlName="companyName" type="text" class="border-gray-300 border-1 rounded-xl h-13 p-5 text-gray-400" placeholder="Your Company">
+                    @if (companyName?.invalid && (companyName?.dirty || companyName?.touched)) {
+                            @if (companyName?.errors?.['required']) {
+                                <span class="text-red-400"> Company Name must not be empty</span>
+                            }
+                        }
                 </div>
                 <div class="grid gap-2">
                     <label class="text-sm 2xl:text-md font-semibold">Job Title</label>
@@ -210,9 +230,9 @@
                 </label>
             </div>
 
-            <div (click)="send()" [ngClass]="{ 'bg-gray-400' : sending, 'cursor-wait' : sending }" class="mt-10 p-4 2xl:p-7 text-center text-white bg-[#6068f1] rounded-xl drop-shadow-2xl shadow-2xl cursor-pointer">
+            <button type="submit" (click)="send()" [ngClass]="{ 'bg-gray-400' : sending, 'cursor-wait' : sending }" class="w-full mt-10 p-4 2xl:p-7 text-center text-white bg-[#6068f1] rounded-xl drop-shadow-2xl shadow-2xl cursor-pointer">
                 <p class="font-bold text-lg 2xl:text-xl">Send Message</p>
-            </div>
+            </button>
             <div class="grid place-items-center">
                 <div class="rounded-full w-max mt-5 bg-[#ebf8f3] text-[#3e8059] border-[#749984] border-1 text-sm 2xl:text-md p-2 pl-5 pr-5 font-semibold">
                     <i class="pi pi-verified" style="font-size: 0.9rem"></i>
