@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-get-started',
   standalone: true,
-  imports: [NavigationBarComponent, ImageShadowDirective, FooterComponent, ReactiveFormsModule, CommonModule, ModalComponent, PrivacyPolicyComponent, RouterLink],
+  imports: [NavigationBarComponent, ImageShadowDirective, FooterComponent, ReactiveFormsModule, CommonModule, ModalComponent, PrivacyPolicyComponent],
   templateUrl: './get-started.component.html',
   styleUrls: ['./get-started.component.css']
 })
