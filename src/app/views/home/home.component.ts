@@ -10,14 +10,16 @@ import { CarouselModule } from 'primeng/carousel';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { AnalyticsService } from '../../services/analytics.service';
 import { RouterLink } from '@angular/router';
+import { ModalComponent } from '../../components/modal/modal.component';
 @Component({
   selector: 'app-home',
-  imports: [NavigationBarComponent, FooterComponent, VAnimateOnViewDirective, NumberAnimComponent, CarouselComponent, CommonModule, RouterLink],
+  imports: [NavigationBarComponent, FooterComponent, VAnimateOnViewDirective, NumberAnimComponent, CarouselComponent, CommonModule, RouterLink, ModalComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements AfterViewInit{
 
+  showModal: boolean = false;
   constructor(private analyticsService: AnalyticsService){}
 
   clients = [
