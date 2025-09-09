@@ -161,4 +161,13 @@ export class HomeComponent implements AfterViewInit, AfterViewChecked{
     return colors[Math.floor(Math.random() * colors.length)];
   }
 
+  closeModal() {
+    this.showModal = false;
+
+    // Optional: Pause the video on close
+    if (this.modalVideo?.nativeElement) {
+      this.modalVideo.nativeElement.pause();
+    }
+  }
+
 }
