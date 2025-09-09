@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { NavigationBarComponent } from '../../components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { VAnimateOnViewDirective } from '../../directives/v-animate-on-view.directive';
@@ -17,9 +17,11 @@ import { ModalComponent } from '../../components/modal/modal.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements AfterViewInit{
+export class HomeComponent implements AfterViewInit, AfterViewChecked{
 
   showModal: boolean = false;
+  private wasModalOpen = false;
+  @ViewChild('modalVideo') modalVideo?: ElementRef<HTMLVideoElement>;
   constructor(private analyticsService: AnalyticsService){}
 
   clients = [
@@ -106,6 +108,29 @@ export class HomeComponent implements AfterViewInit{
 
   ngAfterViewInit(): void {
     this.initializeData();
+  }
+
+  ngAfterViewChecked() {
+    // If the modal just opened
+    if (this.showModal && !this.wasModalOpen) {
+      this.wasModalOpen = true;
+
+      // Try to play the video
+      setTimeout(() => {
+        if (this.modalVideo?.nativeElement) {
+          const video = this.modalVideo.nativeElement;
+          //video.currentTime = 0; // Optional: reset to start
+          video.play().catch(err => {
+            console.warn('Video play failed:', err);
+          });
+        }
+      });
+    }
+
+    // Reset when modal is closed
+    if (!this.showModal && this.wasModalOpen) {
+      this.wasModalOpen = false;
+    }
   }
 
   async initializeData(){
