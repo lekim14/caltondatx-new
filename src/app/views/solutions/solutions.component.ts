@@ -260,7 +260,7 @@ export class SolutionsComponent implements AfterViewInit {
 
   popularIntegrations = [
     {
-      title: 'VCastplay',
+      title: 'vcastplay',
       subTitle: 'Digital Signage Software',
       logo: '/assets/images/vcast-o-white.png'
     },
