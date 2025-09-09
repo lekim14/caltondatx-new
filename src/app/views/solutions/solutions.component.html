@@ -385,6 +385,10 @@
                 <div class="grid md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 gap-5 xl:gap-10 mt-5 w-full xl:w-[50%]">
                     @for (item of popularIntegrations; track $index) {
                         <div class="xl:flex xl:flex-col xl:justify-center grid items-center gap-0 text-center p-5 bg-white w-full">
+                            <!-- <img [src]="item.logo" [alt]="item.logo" class="w-[320px] h-[200px] rounded-2xl"> -->
+                           <div class="w-24 h-24 rounded-full overflow-hidden bg-black">
+                                <img [src]="item.logo" alt="Profile" class="w-full h-full object-contain" />
+                            </div>
                             <p class="text-sm md:text-xl xl:text-md 2xl:text-lg font-semibold">{{ item.title }}</p>
                             <p class="text-xs 2xl:text-sm font-light">{{ item.subTitle }}</p>
                         </div>

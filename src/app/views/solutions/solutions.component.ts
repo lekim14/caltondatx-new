@@ -262,6 +262,7 @@ export class SolutionsComponent implements AfterViewInit {
     {
       title: 'VCastplay',
       subTitle: 'Digital Signage Software',
+      logo: '/assets/images/vcast-o-white.png'
     },
     // {
     //   title: 'Samsung MagicINFO',

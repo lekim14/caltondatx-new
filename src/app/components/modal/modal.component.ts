@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 export class ModalComponent {
   @Input() open = false;               // show/hide modal
   @Input() title: string = '';         // modal title
+  @Input() style: string = '';
+  @Input() modalStyle: string = '';
   @Output() close = new EventEmitter<void>();
 
   onClose() {

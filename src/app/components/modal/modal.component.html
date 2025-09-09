@@ -9,7 +9,7 @@
   ></div>
 
   <!-- Modal -->
-  <div class="bg-white rounded-2xl shadow-lg w-full max-w-7xl max-h-[95vh] flex flex-col relative z-10">
+  <div class="bg-white rounded-2xl shadow-lg w-full max-w-7xl flex flex-col relative z-10" [ngClass]="modalStyle">
     
     <!-- Header -->
     <div class="p-5 flex justify-between items-center">
@@ -23,7 +23,7 @@
     </div>
 
     <!-- Content (scrollable) -->
-    <div class="p-2 overflow-y-auto">
+    <div class="p-2 overflow-y-auto" [ngClass]="style">
       <ng-content></ng-content>
     </div>
 
