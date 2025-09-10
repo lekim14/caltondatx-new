@@ -28,33 +28,33 @@ export class IndustriesComponent implements OnInit {
       color: '#a24fed'
     },
     {
-      title: 'Financial Services',
-      description: 'Risk analytics, customer segmentation, and regulatory compliance solutions. ',
-      data: [ 'Credit risk modeling', 'Fraud detection', 'Portfolio optimization' ],
-      icon: '/assets/icons/dollar.webp',
+      title: 'Food & Beverage',
+      description: 'Restaurant traffic analysis, quick service outlet optimization, and customer dining behavior insights.',
+      data: [ 'Peak hour analysis', 'Drive-thru', 'Location performance' ],
+      icon: '/assets/icons/cart.webp',
       color: '#16a34a'
     },
-    {
-      title: 'Healthcare & Pharma',
-      description: 'Patient outcomes analysis, clinical trial optimization, and market access insights. ',
-      data: [ 'Clinical data analysis', 'Drug efficacy studies', 'Patient journey mapping' ],
-      icon: '/assets/icons/heart.webp',
-      color: '#e34e4e'
-    },
-    {
-      title: 'Technology & Telecom',
-      description: 'User behavior analytics, network optimization, and digital transformation insights. ',
-      data: [ 'Network performance', 'User experience metrics', 'Digital Adoption tracking' ],
-      icon: '/assets/icons/monitor.webp',
-      color: '#655ee9'
-    },
-    {
-      title: 'Automotive & Transport',
-      description: 'Mobility analytics, supply chain optimization, and consumer preference insights. ',
-      data: [ 'Fleet optimization', 'Route efficiency', 'Market demand forecasting' ],
-      icon: '/assets/icons/transfer.webp',
-      color: '#ca8a04'
-    },
+    // {
+    //   title: 'Healthcare & Pharma',
+    //   description: 'Patient outcomes analysis, clinical trial optimization, and market access insights. ',
+    //   data: [ 'Clinical data analysis', 'Drug efficacy studies', 'Patient journey mapping' ],
+    //   icon: '/assets/icons/heart.webp',
+    //   color: '#e34e4e'
+    // },
+    // {
+    //   title: 'Technology & Telecom',
+    //   description: 'User behavior analytics, network optimization, and digital transformation insights. ',
+    //   data: [ 'Network performance', 'User experience metrics', 'Digital Adoption tracking' ],
+    //   icon: '/assets/icons/monitor.webp',
+    //   color: '#655ee9'
+    // },
+    // {
+    //   title: 'Automotive & Transport',
+    //   description: 'Mobility analytics, supply chain optimization, and consumer preference insights. ',
+    //   data: [ 'Fleet optimization', 'Route efficiency', 'Market demand forecasting' ],
+    //   icon: '/assets/icons/transfer.webp',
+    //   color: '#ca8a04'
+    // },
   ];
 
   doohKeyFeatures = [

@@ -34,9 +34,9 @@
             Our deep industry expertise enables us to deliver tailored solutions that address specific market challenges and opportunities.  
         </p>
 
-        <div class="grid xl:grid-cols-3 md:grid-cols-2 gap-10 gap-y-20 mt-10 p-5 xl:p-0">
+        <div class="grid place-items-center xl:grid-cols-3 md:grid-cols-2 gap-10 gap-y-20 mt-10 p-5 xl:p-0">
             @for (item of industries; track $index) {
-                <div class="grid gap-5 mt-5">
+                <div class="grid gap-5 mt-5 shadow-2xl p-10 pb-15 2xl:p-10 xl:p-5">
                     <div class="flex items-center gap-5">
                         <img [src]="item.icon" class="w-[60px] h-[60px]" alt="">
                         <div class="relative inline-block">
@@ -55,7 +55,7 @@
                         }
                     </ul>
 
-                    <p class="text-xs xl:text-sm font-light" [style.color]="item.color">Explore Solutions {{ '->' }}</p>
+                    <!-- <p class="text-xs xl:text-sm font-light" [style.color]="item.color">Explore Solutions {{ '->' }}</p> -->
                 </div>
             }
         </div>
@@ -126,7 +126,7 @@
             </div>
         </div>
         <p class="text-xl xl:text-3xl font-bold poppins">Key Features:</p>
-        <div class="grid 2xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-7 mt-5">
+        <div class="grid 2xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-7 mt-5 mb-7">
             @for(feature of doohKeyFeatures; track $index){
                 <div class="flex gap-3 p-7 rounded-xl border-gray-300 border-1">
                     <img [src]="feature.icon" class="w-[40px] h-[40px] rounded-lg" alt="">
@@ -206,7 +206,7 @@
                     </div>
                 </div>
 
-                <p class="text-xs xl:text-sm font-light text-blue-500 mt-5">Read Full Case Study {{ '->' }}</p>
+                <!-- <p class="text-xs xl:text-sm font-light text-blue-500 mt-5">Read Full Case Study {{ '->' }}</p> -->
             </div>
 
             <div class="grid gap-5 p-5 bg-[#f9fafb]">
@@ -234,7 +234,7 @@
                         <p class="text-xs xl:text-sm font-light">USER ANALYZED</p>
                     </div>
                 </div>
-                <p class="text-xs xl:text-sm font-light text-[#9333ea] mt-5">Read Full Case Study {{ '->' }}</p>
+                <!-- <p class="text-xs xl:text-sm font-light text-[#9333ea] mt-5">Read Full Case Study {{ '->' }}</p> -->
             </div>
         </div>
     </div>
