@@ -66,6 +66,8 @@ export const routes: Routes = [
             ogUrl: 'your og url'
         }
     },
+    { path: '', redirectTo: '', pathMatch: 'full' },
+    { path: '**', redirectTo: '' },
 ];
 
 const routerOptions: ExtraOptions = {
