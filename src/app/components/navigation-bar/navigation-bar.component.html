@@ -5,12 +5,18 @@
     </div>
     
     <!-- Links -->
-    <div class="xl:flex hidden justify-around t items-center gap-6">
+    <div class="xl:flex hidden justify-around t items-center gap-5">
         <a [routerLink]="['/solutions']" routerLinkActive="solutions" class="font-medium {{ isActive('solutions') }} cursor-pointer">Solutions</a>
         <a [routerLink]="['/industries']" routerLinkActive="industries" class="font-medium {{ isActive('industries') }} cursor-pointer">Industries</a>
         <!-- <a [routerLink]="['/resources']" routerLinkActive="resources" class="font-medium {{ isActive('resources') }} cursor-pointer">Resources</a> -->
         <a [routerLink]="['/about']" routerLinkActive="about" class="font-medium {{ isActive('about') }} cursor-pointer">About</a>
-        <button [routerLink]="['/get-started']" class="p-2 pl-4 pr-4 text-white bg-blue-600 rounded-md cursor-pointer" type="button">Get Started</button>
+        <div class="flex gap-2">
+            <button [routerLink]="['/get-started']" class="p-2 pl-4 pr-4 text-white bg-blue-600 rounded-md cursor-pointer" type="button">Get Started</button>
+            <a href="https://analytics.caltondatx.com" target="_blank" rel="noopener noreferrer">
+                <button class="p-2 pl-4 pr-4 text-white bg-blue-600 rounded-md cursor-pointer" type="button">Log-in</button>
+            </a>
+        </div>
+        
     </div>
 
     <!-- Hamburger Button (only shown on small screens) -->
@@ -32,7 +38,10 @@
     <a [routerLink]="['/industries']" routerLinkActive="industries" class="font-medium {{ isActive('industries') }} cursor-pointer">Industries</a>
     <!-- <a [routerLink]="['/resources']" routerLinkActive="resources" class="font-medium {{ isActive('resources') }} cursor-pointer">Resources</a> -->
     <a [routerLink]="['/about']" routerLinkActive="about" class="font-medium {{ isActive('about') }} cursor-pointer">About</a>
-    <button [routerLink]="['/get-started']" class="w-fit px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-md transition cursor-pointer" type="button">
-        Get Started
-    </button>
+    <div class="grid gap-2 grid-cols-1">
+        <button [routerLink]="['/get-started']" class="p-2 text-white bg-blue-600 rounded-md cursor-pointer w-[100px]" type="button">Get Started</button>
+        <a href="https://analytics.caltondatx.com" target="_blank" rel="noopener noreferrer">
+            <button class="p-2 pl-4 pr-4 text-white bg-blue-600 rounded-md cursor-pointer" type="button">Log-in</button>
+        </a>
+    </div>
 </div>
